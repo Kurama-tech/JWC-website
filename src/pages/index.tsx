@@ -15,7 +15,6 @@ export default function Home() {
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <h1>helloooo</h1>
         </div>
-
       </main>
     </>
   )
