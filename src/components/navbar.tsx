@@ -11,12 +11,23 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
+
+
+
+
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'CCTV Cables', description: 'CCTV Cables', href: '#', icon: ChartPieIcon },
+  { name: 'Co-axial Cables', description: 'Co-axial Cables', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'Flexible Wires', description: 'Flexible Wires', href: '#', icon: FingerPrintIcon },
+  { name: 'Hook-up Wires', description: 'Hook-up Wires', href: '#', icon: SquaresPlusIcon },
+  { name: 'Microphone Cables', description: 'Microphone Cables', href: '#', icon: ArrowPathIcon },
+  { name: 'Moulded Cords', description: 'Moulded Cords', href: '#', icon: ArrowPathIcon },
+  { name: 'Multicore Power Cables', description: 'Multicore Power Cables', href: '#', icon: ArrowPathIcon },
+  { name: 'Multicore Sheilded Wire', description: 'Multicore Sheilded Wire', href: '#', icon: ArrowPathIcon },
+  { name: 'Multicore Unsheilded Wire', description: 'Multicore Unsheilded Wire', href: '#', icon: ArrowPathIcon },
+  { name: 'Multimeter Test Prod Wires', description: 'Multimeter Test Prod Wires', href: '#', icon: ArrowPathIcon },
+  { name: 'Speaker Wires', description: 'Speaker Wires', href: '#', icon: ArrowPathIcon },
+  { name: 'Wire Harness', description: 'Wire Harness', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -29,10 +40,10 @@ function classNames(...classes: string[]) {
 
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+ 
   return (
     <header className="bg-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 " aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">JWC</span>
@@ -49,9 +60,9 @@ export default function NavBar() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
+        <Popover.Group className="hidden text-md lg:flex lg:gap-x-12">
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+            <Popover.Button className="flex items-center gap-x-1 leading-6 text-gray-900">
               Products
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </Popover.Button>
@@ -66,7 +77,7 @@ export default function NavBar() {
               leaveTo="opacity-0 translate-y-1"
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                <div className="p-4">
+                <div className="p-4 overflow-auto h-96">
                   {products.map((item) => (
                     <div
                       key={item.name}
@@ -87,7 +98,7 @@ export default function NavBar() {
                 </div>
                 <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                   {callsToAction.map((item) => (
-                    <a
+                    <a 
                       key={item.name}
                       href={item.href}
                       className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
@@ -100,14 +111,16 @@ export default function NavBar() {
               </Popover.Panel>
             </Transition>
           </Popover>
-
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="#" className="leading-6 text-gray-900">
+            Home
+          </a>  
+          <a href="#" className="leading-6 text-gray-900">
             Infrastructure
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="#" className="leading-6 text-gray-900">
             About us
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="#" className="leading-6 text-gray-900">
             Company
           </a>
         </Popover.Group>

@@ -1,6 +1,6 @@
 import Layout from '@/Layouts/default';
 import Head from 'next/head';
-
+import ShopByProductGrid from '../components/shopByProductGrid';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <main>
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <h1>helloooo</h1>
+          <ShopByProductGrid/>
         </div>
       </main>
     </>
