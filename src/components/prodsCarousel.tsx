@@ -1,6 +1,6 @@
 import { Carousel } from "flowbite-react"
 
-import { ArrowLeftIcon,ArrowRightIcon } from "@heroicons/react/24/outline"
+import {ChevronLeftIcon,ChevronRightIcon} from "@heroicons/react/24/outline"
 
 export default function ProdsCarousel ()
 {
@@ -9,8 +9,8 @@ export default function ProdsCarousel ()
        
         <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 bg-white ">
         <Carousel slide={false}
-        leftControl={ <ArrowLeftIcon className=" h-9 w-9 bg-red-500"></ArrowLeftIcon>}
-        rightControl={ <ArrowRightIcon className="h-9 w-9 bg-red-500"></ArrowRightIcon>}
+        leftControl={ <ChevronLeftIcon className=" h-12 w-12  text-white bg-red-400 border border-red-500  hover:text-red-400 hover:bg-white"></ChevronLeftIcon>}
+        rightControl={ <ChevronRightIcon className=" h-12 w-12  text-white bg-red-400 border border-red-500  hover:text-red-400 hover:bg-white"></ChevronRightIcon>}
         >
            
                 <div className="flex h-full items-center justify-center gap-6 p-6">
