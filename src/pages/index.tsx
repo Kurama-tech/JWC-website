@@ -1,6 +1,7 @@
 import Layout from '@/Layouts/default';
 import Head from 'next/head';
-import ShopByProductGrid from '../components/shopByProductGrid';
+import ShopByCategoryGrid from '@/components/shopByCategoriesGrid';
+import ProdsCarousel from '@/components/prodsCarousel';
 
 export default function Home() {
   return (
@@ -13,8 +14,13 @@ export default function Home() {
       </Head>
       <main>
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <ShopByProductGrid/>
+          <ShopByCategoryGrid/>
         </div>
+
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+         <ProdsCarousel/>
+        </div>
+       
       </main>
     </>
   )
