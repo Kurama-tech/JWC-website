@@ -2,7 +2,7 @@ import Layout from '@/Layouts/default';
 import Head from 'next/head';
 import ShopByCategoryGrid from '@/components/shopByCategoriesGrid';
 import ProdsCarousel from '@/components/prodsCarousel';
-import ProdsGrid from './prodsGrid';
+import ProdsGrid from '@/components/prodsGrid';
 export default function Home() {
   return (
     <>
