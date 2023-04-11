@@ -4,17 +4,17 @@ import { useState } from "react"
 
 const products = [
     { id:1, name: 'CCTV Cables', description: 'CCTV Cables' },
-    { id:2,name: 'Co-axial Cables', description: 'Co-axial Cables'},
+    { id:2, name: 'Co-axial Cables', description: 'Co-axial Cables'},
     { id:3, name: 'Flexible Wires', description: 'Flexible Wires' },
-    { id:4,name: 'Hook-up Wires', description: 'Hook-up Wires' },
-    { id:5,name: 'Microphone Cables', description: 'Microphone Cables' },
-    { id:6,name: 'Moulded Cords', description: 'Moulded Cords'},
+    { id:4, name: 'Hook-up Wires', description: 'Hook-up Wires' },
+    { id:5, name: 'Microphone Cables', description: 'Microphone Cables' },
+    { id:6, name: 'Moulded Cords', description: 'Moulded Cords'},
     { id:7, name: 'Multicore Power Cables', description: 'Multicore Power Cables' },
-    { id:8,name: 'Multicore Sheilded Wire', description: 'Multicore Sheilded Wire' },
-    { id:9,name: 'Multicore Unsheilded Wire', description: 'Multicore Unsheilded Wire' },
-    { id:10,name: 'Multimeter Test Prod Wires', description: 'Multimeter Test Prod Wires' },
+    { id:8, name: 'Multicore Sheilded Wire', description: 'Multicore Sheilded Wire' },
+    { id:9, name: 'Multicore Unsheilded Wire', description: 'Multicore Unsheilded Wire' },
+    { id:10, name: 'Multimeter Test Prod Wires', description: 'Multimeter Test Prod Wires' },
     { id:11, name: 'Speaker Wires', description: 'Speaker Wires'},
-    { id:12,name: 'Wire Harness', description: 'Wire Harness' },
+    { id:12, name: 'Wire Harness', description: 'Wire Harness' },
   ]
 
 
