@@ -1,8 +1,9 @@
 import Layout from '@/Layouts/default';
 import Head from 'next/head';
 import ShopByCategoryGrid from '@/components/shopByCategoriesGrid';
-import ProdsCarousel from '@/components/prodsCarousel';
+
 import ProdsGrid from '@/components/prodsGrid';
+import HeroSection from '@/components/heroSectionCarousel';
 export default function Home() {
   return (
     <>
@@ -13,6 +14,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <HeroSection/>
+        </div> 
+
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <ShopByCategoryGrid/>
         </div>
