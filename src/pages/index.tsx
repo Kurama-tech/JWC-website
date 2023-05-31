@@ -1,9 +1,11 @@
 import Layout from '@/Layouts/default';
 import Head from 'next/head';
-import ShopByCategoryGrid from '@/components/shopByCategoriesGrid';
-import ProdsGrid from '@/components/prodsGrid';
-import HeroSection from '@/components/heroSectionCarousel';
-import OurServices from '@/components/ourServices';
+import Hero from '@/components/hero';
+import MainProducts from '@/components/mainproducts';
+import Products from '@/components/products';
+import Services from '@/components/services';
+import Contact from '@/components/contact';
+
 export default function Home() {
   return (
     <>
@@ -15,21 +17,31 @@ export default function Home() {
       </Head>
       <main>
 
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <HeroSection/>
-        </div> 
+        
+          <Hero />
 
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          {/* <HeroSection/>  */}
+
+          <MainProducts trim={true}/>
+       
+
+        {/* <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <ShopByCategoryGrid/>
-        </div>
+        </div> */}
 
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <Products trim={true} />
+
+        {/* <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
          <ProdsGrid/>
-        </div>
+        </div> */}
+         
+         <div id='about'><Services /></div>
 
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+         <div id='contact'><Contact /></div>
+
+       {/*  <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
          <OurServices/>
-        </div>
+        </div> */}
        
       </main>
     </>

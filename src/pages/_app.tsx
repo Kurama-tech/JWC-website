@@ -3,7 +3,7 @@ import { AppProps } from "next/app";
 import { ReactNode } from 'react';
 import { NextPage } from 'next';
 import Layout from '@/Layouts/default';
-
+import { AppProvider } from '../store/store';
 
 type Page<P = {}> = NextPage<P> & {
   getLayout?: (page: ReactNode) => ReactNode;
@@ -21,5 +21,7 @@ export default function MyApp({ Component, pageProps }: Props) {
       return <Layout>{page}</Layout>;
     };
 
-  return renderWithLayout(<Component {...pageProps} />);
+  return renderWithLayout(<AppProvider>
+    <Component {...pageProps} />
+  </AppProvider>);
 }

@@ -1,10 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+
+const withMT = require("@material-tailwind/react/utils/withMT");
+module.exports = withMT({
   content: [
     "./node_modules/flowbite-react/**/*.js",
     "./src/**/*.{js,ts,jsx,tsx}",],
   theme: {
-    colors:{
+    colors: {
       transparent: 'transparent',
       current: 'currentColor',
       'primary': '#6c63ff',
@@ -19,9 +21,13 @@ module.exports = {
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
       'scarlet': '#FF2400',
+    },
+    extend: {
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
+    },
   },
-    extend: {},
-  },
-  plugins: [require("flowbite/plugin")],
-}
+  plugins: [require("flowbite/plugin"), require('@tailwindcss/aspect-ratio')],
+});
 
