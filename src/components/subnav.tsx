@@ -39,7 +39,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavBar() {
+export default function BreadCrumbs() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { state, setState } = useAppContext();
   
@@ -121,12 +121,7 @@ export default function NavBar() {
         <a href="/products" className="leading-6 text-gray-900">
           Sub Products
         </a>
-        <a href="#about" className="leading-6 text-gray-900">
-          About
-        </a>
-        <a href="#contact" className="leading-6 text-gray-900">
-          Contact
-        </a>
+       
       </Popover.Group>
       {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
       <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -192,21 +187,8 @@ export default function NavBar() {
                 >
                   Sub Products
                 </a>
-                <a
-                  href="#about"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  About
-                </a>
               </div>
-              <div className="py-6">
-                <a
-                  href="#contact"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Contact
-                </a>
-              </div>
+              
             </div>
           </div>
         </Dialog.Panel>

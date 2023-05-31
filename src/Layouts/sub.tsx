@@ -1,6 +1,6 @@
-import NavBar from '@/components/navbar'
 import Footer from '@/components/footer'
 import { ReactNode, useLayoutEffect } from 'react'
+import BreadCrumbs from '@/components/subnav'
 
 
 interface Props {
@@ -8,14 +8,14 @@ interface Props {
     // any props that come into the component
 }
 
-export default function Layout({ children }: Props) {
+export default function SubLayout({ children }: Props) {
 
     
 
     return (
         <div className='mx-auto w-full max-w-screen-xl'>
             <header className='sticky top-0 z-50'>
-                <NavBar />
+                <BreadCrumbs />
             </header>
             <main>{children}</main>
             <footer>

@@ -1,6 +1,10 @@
 import Layout from '@/Layouts/default';
 import Head from 'next/head';
-import ShopByProductGrid from '../components/shopByProductGrid';
+import Hero from '@/components/hero';
+import MainProducts from '@/components/mainproducts';
+import Products from '@/components/products';
+import Services from '@/components/services';
+import Contact from '@/components/contact';
 
 export default function Home() {
   return (
@@ -12,9 +16,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <ShopByProductGrid/>
-        </div>
+
+        
+          <Hero />
+
+          {/* <HeroSection/>  */}
+
+          <MainProducts trim={true}/>
+       
+
+        {/* <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <ShopByCategoryGrid/>
+        </div> */}
+
+        <Products trim={true} />
+
+        {/* <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+         <ProdsGrid/>
+        </div> */}
+         
+         <div id='about'><Services /></div>
+
+         <div id='contact'><Contact /></div>
+
+       {/*  <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+         <OurServices/>
+        </div> */}
+       
       </main>
     </>
   )
