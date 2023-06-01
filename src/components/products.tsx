@@ -10,6 +10,7 @@ import TextWrapper from "./textwrapper";
 //mport  Context  from '../store/context';
 import { useAppContext } from "@/store/store";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 type Products = {
     trim: boolean;
@@ -71,12 +72,12 @@ export default function Products({ trim }: Products) {
 
                 {trim && (<div className="flex items-center justify-center">
 
-                    <a
+                    <Link
                         href="/products"
                         className="rounded-md px-3.5 bg-orange-600 hover:bg-orange-800 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     >
                         See more
-                    </a>
+                    </Link>
 
                 </div>)}
             </div>

@@ -1,4 +1,5 @@
 import { Typography } from "@material-tailwind/react";
+import Link from "next/link";
  
 const LINKS = [
   {
@@ -51,7 +52,7 @@ export default function Footer() {
             variant="small"
             className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
           >
-            &copy; {currentYear} <a href="/">JWC India</a>. All
+            &copy; {currentYear} <Link href="/">JWC India</Link>. All
             Rights Reserved.
           </Typography>
         </div>

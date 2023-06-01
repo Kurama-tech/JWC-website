@@ -32,7 +32,7 @@ const AppContext = createContext<{
 
 export const useAppContext = () => useContext(AppContext);
 
-export const AppProvider: React.FC = ({ children }) => {
+export const AppProvider = ({ children }: any) => {
   const [state, setState] = useState<AppStateType>(initialState);
 
   let HomeData: any[] = []

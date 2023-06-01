@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-const API_URL = "http://localhost:8002/"
+const API_URL = "https://jwc-api.mamun.cloud"
 
 const fetchHomeData = async () => {
     try {

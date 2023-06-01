@@ -8,6 +8,7 @@ import {
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import TextWrapper from "./textwrapper";
 import { useAppContext } from "@/store/store";
+import Link from "next/link";
 
 type Products = {
     trim: boolean;
@@ -60,12 +61,12 @@ export default function MainProducts({ trim }: Products) {
 
                         {trim && (<div className="flex items-center justify-center">
 
-                    <a
+                    <Link
                         href="/categories"
                         className="rounded-md px-3.5 bg-orange-600 hover:bg-orange-800 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     >
                         See more
-                    </a>
+                    </Link>
 
                 </div>)}
 
