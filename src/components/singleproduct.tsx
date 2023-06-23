@@ -20,12 +20,12 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Product() {
+export default function Product({ data, tables }: any) {
     const router = useRouter();
     const { state, setState } = useAppContext();
     const { id } = router.query
 
-    const prod = findObjectById(id, state.items)
+    const prod = findObjectById(id, data)
     const [TablesFetched, setTables] = useState<any>([])
     const [Children, setChildren] = useState<any>([])
     const [loading, setLoading] = useState(true)
@@ -40,14 +40,14 @@ export default function Product() {
           setFeaturedImage(prod?.images[0]);
           
           prod?.tables.forEach((item: any) => {
-            const data = findObjectById(item.id, state.Tables);
+            const data = findObjectById(item.id, tables);
             if (data != null) {
               TablesData.push(data);
             }
           });
           setTables(TablesData);
           if (prod?.type === "Parent") {
-            const childern = searchItemsByParent(prod?.id, state.items);
+            const childern = searchItemsByParent(prod?.id, data);
             if (childern.length <= 0) {
               setHasNoChild(true);
             } else {
@@ -60,15 +60,7 @@ export default function Product() {
         };
     
         fetchData().then(()=>{
-           
-            if(state.Tables.length <= 0){
-               
-                fetchTables().then((resp) => {
-                    if(resp != null){
-                        setState({ ...state, Tables: resp})
-                    }
-                })
-            }
+    
         });
     
         const timer = setTimeout(() => {
@@ -76,7 +68,7 @@ export default function Product() {
                 setLoading(false);
                 setnullpage(true)
             }
-        }, 3000);
+        }, 7000);
     
         return () => {
           clearTimeout(timer); // Clean up the timer if the component unmounts before the timer completes

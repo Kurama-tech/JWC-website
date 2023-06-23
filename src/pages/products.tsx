@@ -2,8 +2,26 @@
 import Head from 'next/head';
 import Products from '@/components/products';
 
-import SubLayout from '@/Layouts/sub';
-export default function Home() {
+import Layout from '@/Layouts/default';
+import { fetchHomeData, fetchItemsData, fetchTables } from '@/requests/requests';
+import { useAppContext } from '@/store/store';
+import { trimChild, setDataChild, setDataParents, addChildToParent } from '@/store/utils';
+import { useEffect } from 'react';
+export default function MProducts({homedata, items, tables}: any) {
+    const { state, setState } = useAppContext();
+
+  useEffect(() => {
+             setState({ ...state, 
+                homedata:  homedata,
+                items: items,
+                itemsHome: trimChild(items),
+                childItems: setDataChild(items), 
+                childHome: trimChild(setDataChild(items)),
+                mainHome: trimChild(setDataParents(items)),
+                mainItems: setDataParents(items), 
+                Tables: tables,
+             });
+  }, []);
     return (
         <>
             <Head>
@@ -16,13 +34,23 @@ export default function Home() {
 
                 <Products trim={false} />
 
-                
-
             </main>
         </>
     )
 }
 
-Home.getLayout = function (page: any) {
-    return <SubLayout>{page}</SubLayout>;
+export const getServerSideProps = async (context: any) => {
+    const homedata = await fetchHomeData()
+    const tables = await fetchTables()
+    
+    const items = await fetchItemsData()
+    const navitems = addChildToParent(items)
+    return {
+        props: {homedata, items, tables, navitems},
+    };
+    
+  }
+
+MProducts.getLayout = function (page: any) {
+    return <Layout>{page}</Layout>;
 };

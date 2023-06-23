@@ -9,7 +9,7 @@ type HeroType = {
     url:string;
 }
 
-export default function Hero() {
+export default function Hero({ data }: any) {
     //const { globalState, globalDispatch } = useContext(Context);
     const { state, setState } = useAppContext();
 
@@ -21,12 +21,10 @@ export default function Hero() {
         <div className="relative isolate overflow-hidden bg-orange-200 px-6 pt-16 sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
-              JWC Wires & Cables
+              Welcome to Jai Wires & Cables!
             </h2>
             <p className="mt-6 text-lg leading-8 text-black text-justify">
-              We manufacture a wide range of wires from Flexible Wires, Hookup
-              Wires, CCTV Wires Co-axial Cable, Shielded Cable, to Multicore
-              Unshielded & Multicore Shielded Cables....
+              We are a leading manufacturer of a wide range of wires, including Flexible Wires, Hookup Wires, CCTV Wires, Co-axial Cable, Shielded Cable, and Multicore Cables. Our brand, JWC, represents quality and reliability.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
               <a
@@ -45,7 +43,7 @@ export default function Hero() {
           </div>
           <div id="carousel" className="relative mt-16 lg:mt-8">
             <Carousel className="rounded-xl">
-                {state.homedata.map((_item: any) => (
+                {data.map((_item: any) => (
                      <img
                      key={_item.id}
                      src={_item.url}

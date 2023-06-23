@@ -1,8 +1,31 @@
 
 import Head from 'next/head';
 import Product from '@/components/singleproduct';
-import SubLayout from '@/Layouts/sub';
-export default function Home() {
+import Layout from '@/Layouts/default';
+import { fetchHomeData, fetchItemsData, fetchTables } from '@/requests/requests';
+import { useAppContext } from '@/store/store';
+import { trimChild, setDataChild, setDataParents, addChildToParent } from '@/store/utils';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+export default function SProduct({homedata, items, tables}: any) {
+
+
+  const { state, setState } = useAppContext();
+
+  useEffect(() => {
+             setState({ ...state, 
+                homedata:  homedata,
+                items: items,
+                itemsHome: trimChild(items),
+                childItems: setDataChild(items), 
+                childHome: trimChild(setDataChild(items)),
+                mainHome: trimChild(setDataParents(items)),
+                mainItems: setDataParents(items), 
+                Tables: tables,
+             });
+  }, []);
+  
   return (
     <>
       <Head>
@@ -13,13 +36,24 @@ export default function Home() {
       </Head>
       <main>
 
-        <Product />
+        <Product data={items} tables={tables} />
        
       </main>
     </>
   )
 }
 
-Home.getLayout = function (page: any) {
-  return <SubLayout>{page}</SubLayout>;
+export const getServerSideProps = async (context: any) => {
+  const homedata = await fetchHomeData()
+  const tables = await fetchTables()
+  const items = await fetchItemsData()
+  const navitems = addChildToParent(items)
+  return {
+      props: {homedata, items, tables, navitems},
+  };
+  
+}
+
+SProduct.getLayout = function (page: any) {
+  return <Layout>{page}</Layout>;
 };

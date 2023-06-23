@@ -15,7 +15,6 @@ const fetchHomeData = async () => {
 const fetchItemsData = async () => {
     try {
         const response: AxiosResponse = await axios.get(API_URL+ '/items');
-        
         return response.data
       } catch (error: any) {
         console.error('Error:', error.response?.data);

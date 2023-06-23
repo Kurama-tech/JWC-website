@@ -1,12 +1,34 @@
 import Layout from '@/Layouts/default';
 import Head from 'next/head';
 import Hero from '@/components/hero';
-import MainProducts from '@/components/mainproducts';
+import MainProducts, { MixedProducts } from '@/components/mainproducts';
 import Products from '@/components/products';
 import Services from '@/components/services';
 import Contact from '@/components/contact';
+import { fetchHomeData, fetchItemsData, fetchTables } from '@/requests/requests';
+import About from '@/components/about';
+import { useAppContext } from '@/store/store';
+import { useEffect } from 'react';
+import { trimChild, setDataChild, setDataParents, addChildToParent } from '@/store/utils';
 
-export default function Home() {
+export default function Home({homedata, items, tables, navitems}: any) {
+
+  const { state, setState } = useAppContext();
+
+  useEffect(() => {
+             console.log(items)
+             setState({ ...state, 
+                homedata:  homedata,
+                items: items,
+                itemsHome: trimChild(items),
+                childItems: setDataChild(items), 
+                childHome: trimChild(setDataChild(items)),
+                mainHome: trimChild(setDataParents(items)),
+                mainItems: setDataParents(items), 
+                Tables: tables,
+             });
+  }, []);
+  
   return (
     <>
       <Head>
@@ -18,18 +40,20 @@ export default function Home() {
       <main>
 
         
-          <Hero />
+         <Hero data={homedata} />
+
+          <About />
 
           {/* <HeroSection/>  */}
 
-          <MainProducts trim={true}/>
+          <MixedProducts trim={true}/>
        
 
         {/* <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <ShopByCategoryGrid/>
-        </div> */}
+        </div> 
 
-        <Products trim={true} />
+        <Products trim={true} />*/}
 
         {/* <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
          <ProdsGrid/>
@@ -46,6 +70,18 @@ export default function Home() {
       </main>
     </>
   )
+}
+
+export const getServerSideProps = async (context: any) => {
+  const homedata = await fetchHomeData()
+  const tables = await fetchTables()
+  
+  const items = await fetchItemsData()
+  const navitems = addChildToParent(items)
+  return {
+      props: {homedata, items, tables, navitems},
+  };
+  
 }
 
 Home.getLayout = function (page: any) {
