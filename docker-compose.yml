@@ -4,10 +4,7 @@ services:
     image: quay.io/kurama/jwc-frontend
     restart: always
     labels:
-      - traefik.backend=jwcfrontend
       - traefik.frontend.rule=Host:jwc-frontend.mamun.cloud
-      - traefik.docker.network=web
-      - traefik.port=8003
     networks:
      - internal
      - web
@@ -18,3 +15,4 @@ networks:
    external: true
  internal:
    external: false
+
