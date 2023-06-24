@@ -4,7 +4,7 @@ services:
     image: quay.io/kurama/jwc-frontend
     restart: always
     labels:
-      - traefik.frontend.rule=Host:jwc-front.mamun.cloud
+      - traefik.frontend.rule=Host:jwc-frontend.mamun.cloud
     networks:
      - internal
      - web
