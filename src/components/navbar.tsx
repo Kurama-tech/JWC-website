@@ -62,8 +62,8 @@ const NestedMenu = ({ item }: { item: any }) => {
 };
 
 const callsToAction = [
-    { name: 'Categories', href: '/categories', icon: RectangleStackIcon },
-    { name: 'Products', href: '/products', icon: BuildingStorefrontIcon },
+   // { name: 'Categories', href: '/categories', icon: RectangleStackIcon },
+    { name: 'All Products', href: '/products', icon: BuildingStorefrontIcon },
 ]
 
 
@@ -278,16 +278,10 @@ export default function NavBar({ data }: any) {
                                     )}
                                 </Disclosure>
                                 <Link
-                                    href="/categories"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Categories
-                                </Link>
-                                <Link
                                     href="/products"
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
-                                    Products
+                                    All Products
                                 </Link>
                                 <Link
                                     href="/#about"
