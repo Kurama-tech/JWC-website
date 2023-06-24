@@ -41,34 +41,39 @@ function removeIdField(data: any[]): any[] {
 }
 
 function addChildToParent(objects: any[]): any[] {
-    const objectMap: Record<string, any> = {};
-    const newObjects: any[] = [];
-  
-    // Create a map of objects using their IDs
-    for (const obj of objects) {
-      objectMap[obj.id] = obj;
-    }
-  
-    // Iterate over the objects and add child to parent if it exists
-    for (let i = 0; i < objects.length; i++) {
-      const obj = objects[i];
-      if (obj.type === 'Child' && obj.parent && objectMap[obj.parent]) {
-        const parent = objectMap[obj.parent];
-        if (!parent.child) {
-          parent.child = [];
-        }
-        // Check if child object already exists in parent's 'child' array
-        const existingChild = parent.child.find((child: { id: any; }) => child.id === obj.id);
-        if (!existingChild) {
-          parent.child.push(obj);
-        }
-      } else {
-        newObjects.push(obj); // Add the object to the newObjects array
-      }
-    }
-  
-    return newObjects;
+  try{
+  const objectMap: Record<string, any> = {};
+  const newObjects: any[] = [];
+
+  // Create a map of objects using their IDs
+  for (const obj of objects) {
+    objectMap[obj.id] = obj;
   }
+
+  // Iterate over the objects and add child to parent if it exists
+  for (let i = 0; i < objects.length; i++) {
+    const obj = objects[i];
+    if (obj.type === 'Child' && obj.parent && objectMap[obj.parent]) {
+      const parent = objectMap[obj.parent];
+      if (!parent.child) {
+        parent.child = [];
+      }
+      // Check if child object already exists in parent's 'child' array
+      const existingChild = parent.child.find((child: { id: any; }) => child.id === obj.id);
+      if (!existingChild) {
+        parent.child.push(obj);
+      }
+    } else {
+      newObjects.push(obj); // Add the object to the newObjects array
+    }
+  }
+
+  return newObjects;
+  }
+  catch (e) {
+    return [];
+  }
+}
   
 
 export {setDataParents, setDataChild, trimChild, findObjectById, removeIdField, searchItemsByParent, addChildToParent}

@@ -73,7 +73,7 @@ export default function NavBar({ data }: any) {
     const { state, setState } = useAppContext();
     const router = useRouter();
 
-    const products2 = data.navitems
+    const products2 = addChildToParent(data.items)
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isNestedDropdownOpen, setIsNestedDropdownOpen] = useState(false);

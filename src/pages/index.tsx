@@ -11,7 +11,7 @@ import { useAppContext } from '@/store/store';
 import { useEffect } from 'react';
 import { trimChild, setDataChild, setDataParents, addChildToParent } from '@/store/utils';
 
-export default function Home({homedata, items, tables, navitems}: any) {
+export default function Home({homedata, items, tables}: any) {
 
   const { state, setState } = useAppContext();
 
@@ -77,9 +77,8 @@ export const getServerSideProps = async (context: any) => {
   const tables = await fetchTables()
   
   const items = await fetchItemsData()
-  const navitems = addChildToParent(items)
   return {
-      props: {homedata, items, tables, navitems},
+      props: {homedata, items, tables},
   };
   
 }

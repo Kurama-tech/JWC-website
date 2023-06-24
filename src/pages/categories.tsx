@@ -46,9 +46,8 @@ export const getServerSideProps = async (context: any) => {
     const tables = await fetchTables()
     
     const items = await fetchItemsData()
-    const navitems = addChildToParent(items)
     return {
-        props: {homedata, items, tables, navitems},
+        props: {homedata, items, tables},
     };
     
   }
