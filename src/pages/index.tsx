@@ -5,6 +5,7 @@ import MainProducts from '@/components/mainproducts';
 import Products from '@/components/products';
 import Services from '@/components/services';
 import Contact from '@/components/contact';
+import { fetchItemsData } from '@/requests/requests';
 
 export default function Home() {
   return (
@@ -46,6 +47,14 @@ export default function Home() {
       </main>
     </>
   )
+}
+
+export const getServerSideProps = async (context: any) => {
+  const items = await fetchItemsData()
+  return {
+      props: {items},
+  };
+  
 }
 
 Home.getLayout = function (page: any) {
