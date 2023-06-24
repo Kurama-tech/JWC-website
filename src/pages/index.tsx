@@ -16,7 +16,6 @@ export default function Home({homedata, items, tables}: any) {
   const { state, setState } = useAppContext();
 
   useEffect(() => {
-             console.log(items)
              setState({ ...state, 
                 homedata:  homedata,
                 items: items,

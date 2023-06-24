@@ -11,18 +11,12 @@ import {
     BuildingStorefrontIcon,
     RectangleStackIcon
 } from '@heroicons/react/24/outline'
-import {
-    Menu,
-    MenuHandler,
-    MenuList,
-    MenuItem,
-    Button,
-} from "@material-tailwind/react";
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { useAppContext } from '@/store/store'
 import Link from 'next/link'
 import { addChildToParent } from '@/store/utils'
 import { useRouter } from 'next/router';
+import { URL } from 'url'
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -46,14 +40,22 @@ const NestedMenu = ({ item }: { item: any }) => {
                             aria-hidden="true" />
                     </Disclosure.Button>
                     <Disclosure.Panel className="mt-2 space-y-2">
-                        {item.child.map((item: any) => (
+                        <Disclosure.Button
+                            key={item.name}
+                            as="a"
+                            href={"/product/" + item.id}
+                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                        >
+                            All {item.name}
+                        </Disclosure.Button>
+                        {item?.child?.map((value: any) => (
                             <Disclosure.Button
-                                key={item.name}
+                                key={value.name}
                                 as="a"
-                                href={"/product/" + item.id}
+                                href={"/product/" + value.id}
                                 className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                             >
-                                {item.name}
+                                {value.name}
                             </Disclosure.Button>
                         ))}
                     </Disclosure.Panel></>)}
@@ -62,7 +64,7 @@ const NestedMenu = ({ item }: { item: any }) => {
 };
 
 const callsToAction = [
-   // { name: 'Categories', href: '/categories', icon: RectangleStackIcon },
+    // { name: 'Categories', href: '/categories', icon: RectangleStackIcon },
     { name: 'All Products', href: '/products', icon: BuildingStorefrontIcon },
 ]
 
@@ -70,6 +72,7 @@ const callsToAction = [
 
 export default function NavBar({ data }: any) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [opened, setopened] = useState(false);
     const { state, setState } = useAppContext();
     const router = useRouter();
 
@@ -88,6 +91,10 @@ export default function NavBar({ data }: any) {
 
     const toggleNestedDropdown = () => {
         setIsNestedDropdownOpen(!isNestedDropdownOpen);
+    };
+
+    const toggleOpened = () => {
+        setopened(!opened);
     };
 
 
@@ -127,87 +134,68 @@ export default function NavBar({ data }: any) {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
                         >
-                            <Popover.Panel className="origin-top-right absolute right-0 mt-2 w-screen max-w-md rounded-md shadow-lg bg-white ring-1 ring-gray-900/5 ring-opacity-5">
-                                <div className="py-1 max-h-96" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                            <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                                <div className="p-4 overflow-auto h-96">
                                     {products2?.map((item: any) => (
-                                        <div  key={item.name}>
-                                            {item.child.length <= 0 ? (
-                                                <div
-                                                    key={item.name}
-                                                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                                                >
-
-                                                    <div className="flex-auto">
-                                                        <Link href={"/product/" + item.id} className="block font-semibold text-gray-900">
+                                        <div
+                                            key={item.name}
+                                            className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                                        >{item?.child?.length > 0 ? (
+                                            <Disclosure as="div" className="-mx-3">
+                                                {({ open }) => (
+                                                    <>
+                                                        <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 font-semibold leading-7 hover:bg-gray-50">
                                                             {item.name}
-                                                            <span className="absolute inset-0" />
-                                                        </Link>
+                                                            <ChevronDownIcon
+                                                                className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                                                                aria-hidden="true" />
+                                                        </Disclosure.Button>
+                                                        <Disclosure.Panel className="mt-2 space-y-2">
+                                                            <ul className="flex-auto">
+                                                                <li key={"default-"+item.name}>
+                                                                    <Link href={"/product/" + item.id} className="block font-semibold text-gray-900">
+                                                                        All {item.name}
 
-                                                    </div>
-                                                </div>
-                                            ) :
-                                                (
-                                                    <Popover className="relative">
-                                                        <Popover.Button
-                                                            className="block w-full text-left px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100 hover:text-gray-900"
-                                                            onMouseEnter={toggleNestedDropdown}
-                                                            onMouseLeave={toggleNestedDropdown}
-                                                            onClick={(e) => { routeto(item.id) }}
-                                                            role="menuitem"
-                                                        >
-                                                            {item.name}
-                                                        </Popover.Button>
-                                                        <Transition
-                                                            show={isNestedDropdownOpen}
-                                                            as={Fragment}
-                                                            enter="transition ease-out duration-200"
-                                                            enterFrom="opacity-0 translate-y-1"
-                                                            enterTo="opacity-100 translate-y-0"
-                                                            leave="transition ease-in duration-150"
-                                                            leaveFrom="opacity-100 translate-y-0"
-                                                            leaveTo="opacity-0 translate-y-1"
-                                                        >
-                                                            <Popover.Panel
-                                                                className="origin-top-right absolute left-full mt-2 -ml-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-                                                                onMouseEnter={toggleNestedDropdown}
-                                                                onMouseLeave={toggleNestedDropdown}
-                                                            >
-                                                                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                                                    {item.child.map((subitem: any) => (
-                                                                        <div
-                                                                            key={subitem.name}
-                                                                            className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                                                                        >
+                                                                    </Link>
+                                                                </li>
+                                                                {item?.child?.map((value: any) => (
 
-                                                                            <div className="flex-auto">
-                                                                                <Link href={"/product/" + subitem.id} className="block font-semibold text-gray-900">
-                                                                                    {subitem.name}
-                                                                                    <span className="absolute inset-0" />
-                                                                                </Link>
+                                                                    <li key={"default-"+value.name}>
+                                                                        <Link href={"/product/" + value.id} className="block font-semibold text-gray-900">
+                                                                            {value.name}
 
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            </Popover.Panel>
-                                                        </Transition>
-                                                    </Popover>
+                                                                        </Link>
+                                                                    </li>
+
+                                                                ))}
+                                                            </ul>
+                                                        </Disclosure.Panel>
+                                                    </>
                                                 )}
+                                            </Disclosure>
+                                        ) : (
+                                            <div className="flex-auto">
+                                                <Link href={"/product/" + item.id} className="block font-semibold text-gray-900">
+                                                    {item.name}
+                                                    <span className="absolute inset-0" />
+                                                </Link>
+                                            </div>
+                                        )}
 
                                         </div>
                                     ))}
-                                    <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                                        {callsToAction.map((item) => (
-                                            <Link
-                                                key={item.name}
-                                                href={item.href}
-                                                className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                                            >
-                                                <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                                                {item.name}
-                                            </Link>
-                                        ))}
-                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                                    {callsToAction.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            href={item.href}
+                                            className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                                        >
+                                            <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                                            {item.name}
+                                        </Link>
+                                    ))}
                                 </div>
                             </Popover.Panel>
                         </Transition>
@@ -257,11 +245,11 @@ export default function NavBar({ data }: any) {
                                             <Disclosure.Panel className="mt-2 space-y-2">
                                                 {products2?.map((item: any) => (
                                                     <div key={item.id}>
-                                                        {item.child.length <= 0 ? (
+                                                        {item?.child?.length <= 0 ? (
                                                             <Disclosure.Button
                                                                 key={item.name}
                                                                 as="a"
-                                                                href={item.href}
+                                                                href={"/product/" + item.id}
                                                                 className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                                             >
                                                                 {item.name}
@@ -302,6 +290,6 @@ export default function NavBar({ data }: any) {
                     </div>
                 </Dialog.Panel>
             </Dialog>
-        </header>
+        </header >
     )
 }
