@@ -28,6 +28,6 @@ module.exports = withMT({
       },
     },
   },
-  plugins: [require("flowbite/plugin"), require('@tailwindcss/aspect-ratio')],
+  plugins: [require("flowbite/plugin"), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/forms')],
 });
 

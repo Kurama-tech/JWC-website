@@ -8,6 +8,7 @@ import {
     FingerPrintIcon,
     SquaresPlusIcon,
     XMarkIcon,
+    EnvelopeIcon,
     BuildingStorefrontIcon,
     RectangleStackIcon
 } from '@heroicons/react/24/outline'
@@ -152,19 +153,18 @@ export default function NavBar({ data }: any) {
                                                         </Disclosure.Button>
                                                         <Disclosure.Panel className="mt-2 space-y-2">
                                                             <ul className="flex-auto">
-                                                                <li key={"default-"+item.name}>
-                                                                    <Link href={"/product/" + item.id} className="block font-semibold text-gray-900">
+                                                                <li key={"default-" + item.name}>
+                                                                    <Popover.Button as={Link} className="block font-semibold text-gray-900" href={"/product/" + item.id}>
                                                                         All {item.name}
 
-                                                                    </Link>
+                                                                    </Popover.Button>
                                                                 </li>
                                                                 {item?.child?.map((value: any) => (
 
-                                                                    <li key={"default-"+value.name}>
-                                                                        <Link href={"/product/" + value.id} className="block font-semibold text-gray-900">
+                                                                    <li key={"default-" + value.name}>
+                                                                        <Popover.Button as={Link} className="block font-semibold text-gray-900" href={"/product/" + value.id}>
                                                                             {value.name}
-
-                                                                        </Link>
+                                                                        </Popover.Button>
                                                                     </li>
 
                                                                 ))}
@@ -175,10 +175,10 @@ export default function NavBar({ data }: any) {
                                             </Disclosure>
                                         ) : (
                                             <div className="flex-auto">
-                                                <Link href={"/product/" + item.id} className="block font-semibold text-gray-900">
+                                                <Popover.Button as={Link} href={"/product/" + item.id} className="block font-semibold text-gray-900">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
-                                                </Link>
+                                                </Popover.Button>
                                             </div>
                                         )}
 
@@ -187,14 +187,14 @@ export default function NavBar({ data }: any) {
                                 </div>
                                 <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                                     {callsToAction.map((item) => (
-                                        <Link
+                                        <Popover.Button as={Link}
                                             key={item.name}
                                             href={item.href}
                                             className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                                         >
                                             <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                                             {item.name}
-                                        </Link>
+                                        </Popover.Button>
                                     ))}
                                 </div>
                             </Popover.Panel>
@@ -210,6 +210,21 @@ export default function NavBar({ data }: any) {
                         Home
                     </Link>
                 </Popover.Group>
+                {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a
+                        href='mailto:info@jwcindia.com'
+                        className="rounded-md px-3.5 bg-orange-600 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    >
+                         <span><EnvelopeIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                        info@jwcindia.com</span>
+                    </a>
+                </div> */}
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href="mailto:info@jwcindia.com" className="text-sm font-semibold leading-3 text-gray-900 underline" style={{ display: "flex", alignItems: "center" }}>
+                        info@jwcindia.com <span aria-hidden="true"><EnvelopeIcon className="px-2 h-5 flex-none" aria-hidden="true" /></span>
+                    </a>
+                </div>
+
             </nav><Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">

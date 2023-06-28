@@ -25,7 +25,7 @@ export default function Table({ Data }: TableType) {
                 className="border-b border-blue-gray-100 bg-blue-gray-50 p-2"
               >
                 <Typography
-                  variant="caption"
+                  variant="small"
                   color="blue-gray"
                   className="font-normal leading-none opacity-70 break-all"
                   style={{ maxWidth: "120px" }}
@@ -48,7 +48,7 @@ export default function Table({ Data }: TableType) {
                 {Headers.map((value: string | number) => (
                   <td key={value} className={classes}>
                     <Typography
-                      variant="caption"
+                      variant="small"
                       color="blue-gray"
                       className="font-normal break-all"
                       style={{ maxWidth: "120px" }}

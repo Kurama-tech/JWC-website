@@ -10,6 +10,7 @@ import About from '@/components/about';
 import { useAppContext } from '@/store/store';
 import { useEffect } from 'react';
 import { trimChild, setDataChild, setDataParents, addChildToParent } from '@/store/utils';
+import ContactForm from '@/components/contactform';
 
 export default function Home({homedata, items, tables}: any) {
 
@@ -60,7 +61,10 @@ export default function Home({homedata, items, tables}: any) {
          
          <div id='about'><Services /></div>
 
-         <div id='contact'><Contact /></div>
+         <div id='contact'>
+          <Contact />
+          <ContactForm />
+          </div>
 
        {/*  <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
          <OurServices/>

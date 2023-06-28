@@ -21,7 +21,7 @@ const Contact = () => {
                         <div className="grid px-5 mt-5 sm:grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="col-span-1 mb-5 rounded-lg bg-lightgray">
                                 <p className='px-5 py-5'>
-                                    Busniess Email
+                                    Business Email
                                 </p>
                                 <p className='text-lg px-5 mb-5 text-orange-600 font-bold'>
                                 <a href='mailto:info@jwcindia.com'>info@jwcindia.com</a>

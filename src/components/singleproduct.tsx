@@ -33,6 +33,10 @@ export default function Product({ data, tables }: any) {
     const [featuredImage, setFeaturedImage] = useState(prod?.images[0])
     const [hasNoChild, setHasNoChild] = useState(false)
 
+    function onSubmitContact(){
+        router.push("/#contact")
+    }
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -131,14 +135,14 @@ export default function Product({ data, tables }: any) {
                 {/* Image gallery */}
 
                 <div className="grid gap-4">
-                    <div className='flex justify-center h-[150px] sm:h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px]'>
+                    <div className='flex justify-center h-[100px] sm:h-[100px] md:h-[200px] lg:h-[300px] xl:h-[400px]'>
                         <img className="h-auto max-w-full object-cover rounded-lg" src={featuredImage} alt="" />
                     </div>
 
 
-                    <div className="grid grid-cols-5 gap-4">
+                    <div className="grid px-8 grid-cols-5 gap-4">
                         {prod?.images.map((image: any) => (
-                            <div key={image} className="flex justify-center h-auto max-h-[100px]">
+                            <div key={image} className="flex justify-center h-auto max-w-[100px] max-h-[75px]">
                                 <img
                                     onClick={(e) => setFeaturedImage(image)}
                                     className="h-auto w-full rounded-lg object-cover"
@@ -151,7 +155,7 @@ export default function Product({ data, tables }: any) {
                     </div>
                 </div>
                 <div className="px-8  mt-10 flex flex-col">
-                    <div className="w-full border-b-2 border-gray-300">
+                    <div className="w-full border-gray-300">
                         {/* Column content */}
                         <h1 className="mt-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{prod?.name}</h1>
                         {/* Add your content for the column here */}
@@ -162,8 +166,8 @@ export default function Product({ data, tables }: any) {
                                 <p className="text-base text-gray-900">{prod?.description}</p>
                             </div>
                         </div>
-
-                        <div className="mt-10">
+                        {TablesFetched.length > 0 && (
+                            <div className="mt-10">
 
                             <h1 className="text-xl font-bold">Tables</h1>
 
@@ -179,6 +183,7 @@ export default function Product({ data, tables }: any) {
                                 ))}
                             </div>
                         </div>
+                        )} 
                     </div>
                 </div>
 
@@ -197,19 +202,19 @@ export default function Product({ data, tables }: any) {
 
 
 
-                        <form className="mt-10">
+                        
 
 
 
 
 
                             <button
-                                type="submit"
+                                onClick={()=> onSubmitContact()}
                                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                             >
                                 Contact us
                             </button>
-                        </form>
+                        
                     </div>
 
 
