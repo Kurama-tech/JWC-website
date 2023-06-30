@@ -25,10 +25,7 @@ export default function Services() {
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
              
-              <p className="mt-2 text-3xl font-bold tracking-tight text-orange-600 sm:text-4xl">Services</p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Some of our top notch services
-              </p>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-orange-600 sm:text-4xl">Quality Policy</p>
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative pl-9">

@@ -32,7 +32,7 @@ const Contact = () => {
                                     Phone
                                 </p>
                                 <p className='text-lg px-5 mb-5 text-orange-600 font-bold'>
-                                    <a href='tel:+91952503247951'>+91 952503247951</a>
+                                    <a href='tel:+919820126970'>+91 9820126970</a>
                                 </p>
                             </div>
                             

@@ -11,6 +11,7 @@ import { useAppContext } from '@/store/store';
 import { useEffect } from 'react';
 import { trimChild, setDataChild, setDataParents, addChildToParent } from '@/store/utils';
 import ContactForm from '@/components/contactform';
+import AboutNew from '@/components/aboutnew';
 
 export default function Home({homedata, items, tables}: any) {
 
@@ -42,7 +43,8 @@ export default function Home({homedata, items, tables}: any) {
         
          <Hero data={homedata} />
 
-          <About />
+          {/* <About /> */}
+
 
           {/* <HeroSection/>  */}
 
@@ -59,7 +61,10 @@ export default function Home({homedata, items, tables}: any) {
          <ProdsGrid/>
         </div> */}
          
-         <div id='about'><Services /></div>
+         <div id='about'>
+          <AboutNew />
+          <Services />
+          </div>
 
          <div id='contact'>
           <Contact />
