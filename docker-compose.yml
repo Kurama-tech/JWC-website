@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   jwcfrontend:
-    image: quay.io/kurama/jwc-frontend:finalh
+    image: quay.io/kurama/jwc-frontend:finali
     restart: always
     labels:
       - traefik.frontend.rule=Host:jwc-frontend.mamun.cloud
