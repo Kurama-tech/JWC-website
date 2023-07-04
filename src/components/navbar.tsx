@@ -120,6 +120,9 @@ export default function NavBar({ data }: any) {
                     </button>
                 </div>
                 <Popover.Group className="hidden text-md lg:flex lg:gap-x-12">
+                    <Link href="/" className="leading-6 text-gray-900">
+                        Home
+                    </Link>
                     <Popover className="relative">
                         <Popover.Button className="flex items-center gap-x-1 leading-6 text-gray-900">
                             Products
@@ -206,9 +209,7 @@ export default function NavBar({ data }: any) {
                     <Link href="/#contact" className="leading-6 text-gray-900">
                         Contact
                     </Link>
-                    <Link href="/" className="leading-6 text-gray-900">
-                        Home
-                    </Link>
+
                 </Popover.Group>
                 {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <a

@@ -135,7 +135,7 @@ export default function Product({ data, tables }: any) {
                 {/* Image gallery */}
 
                 <div className="grid gap-4">
-                    <div className='flex justify-center h-[100px] sm:h-[100px] md:h-[200px] lg:h-[300px] xl:h-[400px]'>
+                    <div className='flex justify-center h-[80px] sm:h-[80px] md:h-[100px] lg:h-[200px] xl:h-[300px]'>
                         <img className="h-auto max-w-full object-cover rounded-lg" src={featuredImage} alt="" />
                     </div>
 
@@ -178,6 +178,7 @@ export default function Product({ data, tables }: any) {
                                 {TablesFetched.map((table: any) => (
                                     <div key={table.id}><h4 className="text-sm font-medium text-gray-900">{table.name}</h4><br />
                                         <Table Data={table.data} />
+                                        <br />
                                     </div>
 
                                 ))}
