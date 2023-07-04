@@ -106,7 +106,7 @@ export default function NavBar({ data }: any) {
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">JWC</span>
-                        <img className="w-auto h-12 lg:h-20" src="https://firebasestorage.googleapis.com/v0/b/mamun-public.appspot.com/o/jwclogo.png?alt=media&token=120110d3-ec71-435a-9d40-c5c870bb3cb2" alt="" />
+                        <img className="w-auto h-12 lg:h-20" src="/logo.png" alt="" />
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
@@ -234,7 +234,7 @@ export default function NavBar({ data }: any) {
                             <span className="sr-only">JWC India</span>
                             <img
                                 className="h-8 w-auto"
-                                src="https://firebasestorage.googleapis.com/v0/b/mamun-public.appspot.com/o/jwclogo.png?alt=media&token=120110d3-ec71-435a-9d40-c5c870bb3cb2"
+                                src="/logo.png"
                                 alt="" />
                         </Link>
                         <button
