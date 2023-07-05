@@ -108,7 +108,8 @@ export default function NavBar({ data }: any) {
                         <span className="sr-only">JWC</span>
                         <div className="flex">
                             <img className="w-auto h-12 lg:h-20" src="jwclogo.png" alt="" />
-                            <img className="h-12 w-auto lg:h-20" src="/push.png" alt="" />
+                            <div className="border-r w-2 border-spacing-1 border-orange-600"></div>
+                            <img className="px-1 h-12 w-auto lg:h-20" src="/push.png" alt="" />
                         </div>
                     </Link>
                 </div>
