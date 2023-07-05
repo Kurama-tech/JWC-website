@@ -106,7 +106,10 @@ export default function NavBar({ data }: any) {
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">JWC</span>
-                        <img className="w-auto h-12 lg:h-20" src="/logo.png" alt="" />
+                        <div className="flex">
+                            <img className="w-auto h-12 lg:h-20" src="jwclogo.png" alt="" />
+                            <img className="h-12 w-auto lg:h-20" src="/push.png" alt="" />
+                        </div>
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
@@ -232,10 +235,10 @@ export default function NavBar({ data }: any) {
                     <div className="flex items-center justify-between">
                         <Link href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">JWC India</span>
-                            <img
-                                className="h-8 w-auto"
-                                src="/logo.png"
-                                alt="" />
+                            <div className="flex">
+                            <img className="w-auto h-12 lg:h-20" src="jwclogo.png" alt="" />
+                            <img className="h-12 w-auto lg:h-20" src="/push.png" alt="" />
+                        </div>
                         </Link>
                         <button
                             type="button"
