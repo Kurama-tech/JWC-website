@@ -27,7 +27,7 @@ export default function Table({ Data }: TableType) {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal leading-none opacity-70 break-all"
+                  className="font-normal leading-none opacity-70 whitespace-normal overflow-wrap-normal"
                   style={{ maxWidth: "120px" }}
                 >
                   {head}

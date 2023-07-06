@@ -127,6 +127,9 @@ export default function NavBar({ data }: any) {
                     <Link href="/" className="leading-6 text-gray-900">
                         Home
                     </Link>
+                    <Link href="/#about" className="leading-6 text-gray-900">
+                        About
+                    </Link>
                     <Popover className="relative">
                         <Popover.Button className="flex items-center gap-x-1 leading-6 text-gray-900">
                             Products
@@ -207,9 +210,6 @@ export default function NavBar({ data }: any) {
                             </Popover.Panel>
                         </Transition>
                     </Popover>
-                    <Link href="/#about" className="leading-6 text-gray-900">
-                        About
-                    </Link>
                     <Link href="/#contact" className="leading-6 text-gray-900">
                         Contact
                     </Link>

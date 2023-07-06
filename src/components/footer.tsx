@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <Typography variant="h5" className="mb-6">
-            JWC India 
+          Jai Wires and Cables India
           </Typography>
           <div className="grid grid-cols-1 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
@@ -52,7 +52,7 @@ export default function Footer() {
             variant="small"
             className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
           >
-            &copy; {currentYear} <Link href="/">JWC India</Link>. All
+            &copy; {currentYear} <Link href="/">Jai Wires and Cables India</Link>. All
             Rights Reserved.
           </Typography>
         </div>
