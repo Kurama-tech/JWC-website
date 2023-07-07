@@ -2,6 +2,7 @@ import NavBar from '@/components/navbar'
 import Footer from '@/components/footer'
 import { ReactNode, useLayoutEffect } from 'react'
 import Banner from '@/components/banner'
+import Footer2 from '@/components/footer2'
   
 
 interface Props {
@@ -18,8 +19,10 @@ export default function Layout({ children }: Props) {
                 
             </header>
             <main>{children}</main>
+            
             <footer>
-                <Footer />
+                <Footer2 />
+                {/* <Footer /> */}
             </footer>
         </div>
     )

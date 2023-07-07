@@ -41,9 +41,9 @@ export default function Home({ homedata, items, tables }: any) {
                 <link rel="icon" href="/favicon.ico" />
               </Head>
               <main>
+              <section id='home'>
 
-
-                <Hero data={homedata} />
+                <Hero data={homedata} /></section>
 
                 {/* <About /> */}
 
@@ -62,20 +62,16 @@ export default function Home({ homedata, items, tables }: any) {
                 {/* <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
          <ProdsGrid/>
         </div> */}
+                <section id='about'>
+                <AboutNew />
+                <Services />
+                </section>
+                
+                <section id='enquire'>
+                  {/* <Contact /> */}
+                  
+                <ContactForm /></section>
 
-                <div id='about'>
-                  <AboutNew />
-                  <Services />
-                </div>
-
-                <div id='contact'>
-                  <Contact />
-                  <ContactForm />
-                </div>
-
-                {/*  <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-         <OurServices/>
-        </div> */}
 
               </main>
             </>

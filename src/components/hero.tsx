@@ -16,9 +16,9 @@ export default function Hero({ data }: any) {
    
 
   return (
-    <div className="bg-orange-200 rounded-xl">
+    <div className="bg-orange-300 rounded-xl">
       <div className="mx-auto max-w-7xl py-1 sm:px-1 sm:py-4 lg:px-1">
-        <div className="relative isolate overflow-hidden bg-orange-200 px-6 pt-16 sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+        <div className="relative isolate overflow-hidden bg-orange-300 px-6 pt-16 sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
               Welcome to Jai Wires & Cables!
@@ -42,7 +42,7 @@ export default function Hero({ data }: any) {
             </div>
           </div>
           <div id="carousel" className="relative mt-16 lg:mt-8">
-            <Carousel className="rounded-xl">
+            <Carousel className="rounded-xl" autoplay loop>
                 {data.map((_item: any) => (
                      <img
                      key={_item.id}
