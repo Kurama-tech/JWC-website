@@ -1,4 +1,4 @@
-import NavBar from '@/components/navbar2'
+import NavBar from '@/components/navbar'
 import Footer from '@/components/footer'
 import { ReactNode, useLayoutEffect } from 'react'
 import Banner from '@/components/banner'
