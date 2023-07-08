@@ -191,7 +191,7 @@ export default function Product({ data, tables }: any) {
                         {TablesFetched.length > 0 && (
                             <div className="mt-5">
 
-                                <h1 className="text-xl font-bold">Tables</h1>
+                                {/* <h1 className="text-xl font-bold">Tables</h1> */}
 
                                 <div className="mt-4">
                                     {loading && (
