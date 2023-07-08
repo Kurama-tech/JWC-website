@@ -55,6 +55,7 @@ export default function Product({ data, tables }: any) {
                 if (childern.length <= 0) {
                     setHasNoChild(true);
                 } else {
+                    setHasNoChild(false);
                     setChildren(childern);
                 }
             }
@@ -146,7 +147,7 @@ export default function Product({ data, tables }: any) {
                             </div>
                         </div>
                         <div>
-                            <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+                            <div className="grid grid-cols-4 sm:grid-cols-5 gap-4">
                                 {prod?.images.map((image: any) => (
                                     <div key={image} className="flex justify-center h-auto max-w-[100px] max-h-[75px]">
                                         <img
@@ -210,7 +211,7 @@ export default function Product({ data, tables }: any) {
                 </div>
 
                 {/* Product info */}
-                {!hasNoChild && (
+                {Children.length > 0 && (
                     <div>
                         <h2 className="text-xl font-semibold mb-4">Sub Products</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">

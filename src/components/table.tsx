@@ -53,7 +53,7 @@ export default function Table({ Data }: TableType) {
                       className="font-normal break-all"
                       style={{ maxWidth: "120px" }}
                     >
-                      {item[value]}
+                      {item[value] != undefined ? item[value] : '-'}
                     </Typography>
                   </td>
                 ))}

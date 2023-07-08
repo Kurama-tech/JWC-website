@@ -18,6 +18,7 @@ import Link from 'next/link'
 import { addChildToParent } from '@/store/utils'
 import { useRouter } from 'next/router';
 import { URL } from 'url'
+import { Console } from 'console'
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -79,6 +80,8 @@ export default function NavBar({ data }: any) {
     const [isNestedDropdownOpen, setIsNestedDropdownOpen] = useState(false);
   
     const products2 = addChildToParent(data.items);
+    
+   
   
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
@@ -91,6 +94,19 @@ export default function NavBar({ data }: any) {
     const toggleNestedDropdown = () => {
       setIsNestedDropdownOpen(!isNestedDropdownOpen);
     };
+
+    /* const secondaryDropDownToggleOpen = (index: number) => {
+      console.log("triggered mouseenter")
+      const temp = isSecondaryDropdownOpen
+      temp[index] = true
+      setIsSecondaryDropdownOpen(temp)
+    }
+
+    const secondaryDropDownToggleClose = (index: number) => {
+      const temp = isSecondaryDropdownOpen
+      temp[index] = false
+      setIsSecondaryDropdownOpen(temp)
+    } */
   
     return (
       <header className="bg-white">
@@ -148,7 +164,7 @@ export default function NavBar({ data }: any) {
                   onMouseLeave={() => setIsDropdownOpen(false)}
                 >
                   <div className="p-4 overflow-auto h-96">
-                    {products2?.map((item: any) => (
+                    {products2?.map((item: any, index: number) => (
                       <div
                         key={item.name}
                         className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
