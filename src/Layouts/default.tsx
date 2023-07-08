@@ -1,4 +1,4 @@
-import NavBar from '@/components/navbar'
+import NavBar from '@/components/navbar2'
 import Footer from '@/components/footer'
 import { ReactNode, useLayoutEffect } from 'react'
 import Banner from '@/components/banner'
@@ -12,7 +12,7 @@ interface Props {
 
 export default function Layout({ children }: Props) {
     return (
-        <div className='mx-auto w-full max-w-screen-xl'>
+        <div className='mx-auto w-full'>
             <header className='sticky top-0 z-50'>
                 
                  <NavBar data={children.props.children.props} />

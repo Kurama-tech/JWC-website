@@ -134,7 +134,7 @@ export default function Product({ data, tables }: any) {
                 <br />
 
                 {/* Image gallery */}
-
+                <div className='mx-auto max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="col-span-1 sm:col-span-1 sm:order-2 p-2">
                         <div className="mb-5">
@@ -186,7 +186,7 @@ export default function Product({ data, tables }: any) {
 
 
 
-                <div className="px-8  mt-3 flex flex-col">
+                <div className="px-2  mt-3 flex flex-col">
                     <div className="w-full border-gray-300">
                         {TablesFetched.length > 0 && (
                             <div className="mt-5">
@@ -211,44 +211,43 @@ export default function Product({ data, tables }: any) {
                 </div>
 
                 {/* Product info */}
-                {Children.length > 0 && (
+                {prod.type != "Child" && (
                     <div>
-                        <h2 className="text-xl font-semibold mb-4">Sub Products</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                            {Children.map((product: any) => (
-                                <div key={product.id} className="p-4">
-                                    <Card className="w-full max-h-[300px]">
-                                        <CardHeader shadow={false} floated={false} className="h-60">
-                                            <img
-                                                src={product.images[0]}
-                                                alt={product.name}
-                                                className="w-full h-[150px] object-cover"
-                                            />
-                                        </CardHeader>
-                                        <CardBody>
-                                            <div className="flex items-center justify-between mb-2">
-                                                <Typography color="blue-gray" className="font-bold">
-                                                    {product.name}
-                                                </Typography>
-                                            </div>
-                                            {/* <TextWrapper text={product.description} /> */}
-                                        </CardBody>
-                                        <CardFooter className="pt-0">
-                                            <a
+                        {Children.length > 0 && (
+                        <><h2 className="text-xl font-semibold mb-4">Sub Products</h2><div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                                {Children.map((product: any) => (
+                                    <div key={product.id} className="p-4">
+                                        <Card className="w-full max-h-[300px]">
+                                            <CardHeader shadow={false} floated={false} className="h-60">
+                                                <img
+                                                    src={product.images[0]}
+                                                    alt={product.name}
+                                                    className="w-full h-[150px] object-cover" />
+                                            </CardHeader>
+                                            <CardBody>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <Typography color="blue-gray" className="font-bold">
+                                                        {product.name}
+                                                    </Typography>
+                                                </div>
+                                                {/* <TextWrapper text={product.description} /> */}
+                                            </CardBody>
+                                            <CardFooter className="pt-0">
+                                                <a
 
 
-                                                href={"/product/" + product.id}
-                                                className="rounded-md px-3.5 bg-orange-600 hover:bg-orange-800 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                                            >
-                                                Learn More
-                                            </a>
-                                        </CardFooter>
-                                    </Card>
-                                </div>))}
-                        </div>
+                                                    href={"/product/" + product.id}
+                                                    className="rounded-md px-3.5 bg-orange-600 hover:bg-orange-800 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                                                >
+                                                    Learn More
+                                                </a>
+                                            </CardFooter>
+                                        </Card>
+                                    </div>))}
+                            </div></>)}
                     </div>
                 )}
-            </div>
+            </div></div>
         </div>
     )
 }

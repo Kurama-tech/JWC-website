@@ -18,7 +18,13 @@ import Link from 'next/link'
 import { addChildToParent } from '@/store/utils'
 import { useRouter } from 'next/router';
 import { URL } from 'url'
-import { Console } from 'console'
+import {
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem,
+    Button,
+} from "@material-tailwind/react";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -78,22 +84,27 @@ export default function NavBar({ data }: any) {
     const [isSecondaryDropdownOpen, setIsSecondaryDropdownOpen] = useState(false);
     const router = useRouter();
     const [isNestedDropdownOpen, setIsNestedDropdownOpen] = useState(false);
-  
+
     const products2 = addChildToParent(data.items);
-    
-   
-  
+
+
+
     const toggleDropdown = () => {
-      setIsDropdownOpen(!isDropdownOpen);
+        setIsDropdownOpen(!isDropdownOpen);
     };
-  
+
     const routeto = (id: string) => {
-      router.push("/product/" + id);
+        router.push("/product/" + id);
     };
-  
+
     const toggleNestedDropdown = () => {
-      setIsNestedDropdownOpen(!isNestedDropdownOpen);
+        setIsNestedDropdownOpen(!isNestedDropdownOpen);
     };
+
+    const triggers = {
+        onMouseEnter: () => setIsDropdownOpen(true),
+        onMouseLeave: () => setIsDropdownOpen(false),
+      };
 
     /* const secondaryDropDownToggleOpen = (index: number) => {
       console.log("triggered mouseenter")
@@ -107,159 +118,92 @@ export default function NavBar({ data }: any) {
       temp[index] = false
       setIsSecondaryDropdownOpen(temp)
     } */
-  
+
     return (
-      <header className="bg-white">
-        <nav className="mx-auto flex items-center justify-between p-6 lg:px-8 " aria-label="Global">
-          <div className="flex lg:flex-1">
-            <Link href="/" className="-m-1.5 p-1.5" scroll={false}>
-              <span className="sr-only">JWC</span>
-              <div className="flex">
-                <img className="w-auto h-12 lg:h-20" src="/jwclogo.png" alt="" />
-                <div className="border-r w-2 border-spacing-2 border-orange-600"></div>
-                <img className="px-1 h-12 w-auto lg:h-20" src="/push.png" alt="" />
-              </div>
-            </Link>
-          </div>
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <Popover.Group className="hidden text-md lg:flex lg:gap-x-12">
-            <Link href="/#home" className="leading-6 text-gray-900" scroll={false}>
-              Home
-            </Link>
-            <Link href="/#about" className="leading-6 text-gray-900" scroll={false}>
-              About
-            </Link>
-            <Popover className="relative">
-              <Popover.Button
-                className="flex items-center gap-x-1 leading-6 text-gray-900"
-                onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
-              >
-                Products
-                <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-              </Popover.Button>
-  
-              <Transition
-                as={Fragment}
-                show={isDropdownOpen}
-                enter="transition ease-out duration-200"
-                enterFrom="opacity-0 translate-y-1"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition ease-in duration-150"
-                leaveFrom="opacity-100 translate-y-0"
-                leaveTo="opacity-0 translate-y-1"
-              >
-                <Popover.Panel
-                  className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
-                >
-                  <div className="p-4 overflow-auto h-96">
-                    {products2?.map((item: any, index: number) => (
-                      <div
-                        key={item.name}
-                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        {item?.child?.length > 0 ? (
-                          <Disclosure as="div" className="-mx-3">
-                            {({ open }) => (
-                              <>
-                                <Disclosure.Button 
-                                onMouseEnter={() => setIsSecondaryDropdownOpen(true)}
-                                onMouseLeave={() => setIsSecondaryDropdownOpen(false)}
-                                className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 font-semibold leading-7 hover:bg-gray-50">
-                                  {item.name}
-                                  <ChevronDownIcon
-                                    className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
-                                    aria-hidden="true"
-                                    
-                                  />
-                                </Disclosure.Button>
-                                <Transition
-                                    show={isSecondaryDropdownOpen}
-                                    enter="transition ease-out duration-200"
-                                    enterFrom="opacity-0 translate-y-1"
-                                    enterTo="opacity-100 translate-y-0"
-                                    leave="transition ease-in duration-150"
-                                    leaveFrom="opacity-100 translate-y-0"
-                                    leaveTo="opacity-0 translate-y-1"
-                                >
-                                <Disclosure.Panel 
-                                className="mt-2 space-y-2"
-                                onMouseEnter={() => setIsSecondaryDropdownOpen(true)}
-                                onMouseLeave={() => setIsSecondaryDropdownOpen(false)}
-                                >
-                                  <ul className="flex-auto">
-                                    <li key={'default-' + item.name}>
-                                      <Popover.Button
-                                        as={Link}
-                                        className="block font-semibold text-gray-900"
-                                        href={'/product/' + item.id}
-                                      >
-                                        All {item.name}
-                                      </Popover.Button>
-                                    </li>
-                                    {item?.child?.map((value: any) => (
-                                      <li key={'default-' + value.name}>
-                                        <Popover.Button
-                                          as={Link}
-                                          className="block font-semibold text-gray-900"
-                                          href={'/product/' + value.id}
-                                        >
-                                          {value.name}
-                                        </Popover.Button>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </Disclosure.Panel>
-                                </Transition>
-                              </>
-                            )}
-                          </Disclosure>
-                        ) : (
-                          <div className="flex-auto">
-                            <Popover.Button
-                              as={Link}
-                              href={'/product/' + item.id}
-                              className="block font-semibold text-gray-900"
+        <header className="bg-white">
+            <nav className="mx-auto flex items-center justify-between p-6 lg:px-8 " aria-label="Global">
+                <div className="flex lg:flex-1">
+                    <Link href="/" className="-m-1.5 p-1.5" scroll={false}>
+                        <span className="sr-only">JWC</span>
+                        <div className="flex">
+                            <img className="w-auto h-12 lg:h-20" src="/jwclogo.png" alt="" />
+                            <div className="border-r w-2 border-spacing-2 border-orange-600"></div>
+                            <img className="px-1 h-12 w-auto lg:h-20" src="/push.png" alt="" />
+                        </div>
+                    </Link>
+                </div>
+                <div className="flex lg:hidden">
+                    <button
+                        type="button"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        onClick={() => setMobileMenuOpen(true)}
+                    >
+                        <span className="sr-only">Open main menu</span>
+                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                </div>
+                <div className="hidden text-md lg:flex lg:gap-x-12">
+                    <Link href="/#home" className="leading-6 text-gray-900" scroll={false}>
+                        Home
+                    </Link>
+                    <Link href="/#about" className="leading-6 text-gray-900" scroll={false}>
+                        About
+                    </Link>
+                    <Menu open={isDropdownOpen} handler={setIsDropdownOpen}>
+                        <MenuHandler>
+                            <Link
+                                href='#'
+                                className="flex items-center gap-x-1 leading-6 text-gray-900"
+                                onMouseEnter={() => setIsDropdownOpen(true)}
+                                onMouseLeave={() => setIsDropdownOpen(false)}
                             >
-                              {item.name}
-                              <span className="absolute inset-0" />
-                            </Popover.Button>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                    {callsToAction.map((item) => (
-                      <Popover.Button
-                        as={Link}
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                      >
-                        <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                        {item.name}
-                      </Popover.Button>
-                    ))}
-                  </div>
-                </Popover.Panel>
-              </Transition>
-            </Popover>
-            <Link href="/#enquire" className="leading-6 text-gray-900" scroll={false}>
-              Enquiry
-            </Link>
-          </Popover.Group>
+                                Products
+                                <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                            </Link>
+                        </MenuHandler>
+                        <MenuList
+                            className="max-h-62 text-gray-900"
+                            onMouseEnter={() => setIsDropdownOpen(true)}
+                            onMouseLeave={() => setIsDropdownOpen(false)}
+                        >{products2?.map((item: any, index: number) => (
+                            <div key={item.name}>
+                                {item?.child?.length > 0 ? (
+                                    <Menu placement="right-start" offset={15} allowHover>
+                                    <MenuHandler>
+                                        <MenuItem>{item.name}</MenuItem>
+                                    </MenuHandler>
+                                    <MenuList className="max-h-72 text-gray-900">
+                                        <MenuItem>
+                                        <Link href={'/product/' + item.id}>
+                                                All {item.name}
+                                            </Link>
+                                        </MenuItem>
+                                        {item?.child?.map((value: any) => (
+                                            <MenuItem key={value.id}>
+                                            <Link href={'/product/' + value.id}>
+                                                {value.name}
+                                            </Link>
+                                            </MenuItem>
+                                        ))}
+                                    </MenuList>
+                                </Menu>
+                                ) : (
+                                    <MenuItem>
+                                     <Link href={'/product/' + item.id}>
+                                                {item.name}
+                                    </Link>
+                                    </MenuItem>
+                                )}
+                            </div>
+                        ))}
+                           
+                        </MenuList>
+                    </Menu>
+
+                    <Link href="/#enquire" className="leading-6 text-gray-900" scroll={false}>
+                        Enquiry
+                    </Link>
+                </div>
                 {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <a
                         href='mailto:info@jwcindia.com'
@@ -282,9 +226,9 @@ export default function NavBar({ data }: any) {
                         <Link href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">JWC India</span>
                             <div className="flex">
-                            <img className="w-auto h-12 lg:h-20" src="/jwclogo.png" alt="" />
-                            <img className="h-12 w-auto lg:h-20" src="/push.png" alt="" />
-                        </div>
+                                <img className="w-auto h-12 lg:h-20" src="/jwclogo.png" alt="" />
+                                <img className="h-12 w-auto lg:h-20" src="/push.png" alt="" />
+                            </div>
                         </Link>
                         <button
                             type="button"

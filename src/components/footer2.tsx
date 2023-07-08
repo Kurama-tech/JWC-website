@@ -52,8 +52,8 @@ const currentYear = new Date().getFullYear();
  
 export default function Footer2() {
   return (
-    <footer id="contact" className="relative w-full rounded-xl bg-orange-300">
-      <div className="mx-auto  w-full max-w-7xl px-8">
+    <footer id="contact" className="relative w-full bg-orange-300">
+      <div className="mx-auto w-full px-8">
       
         <div className="py-2 grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
         <div>
@@ -90,12 +90,12 @@ export default function Footer2() {
                 {items.map((link) => (
                   <li key={link.text}>
                     <div  className="py-1.5 flex flex-1">
-                    <span aria-hidden="true"><link.icon className="px-2 h-5 flex-none" aria-hidden="true" /></span>
+                    <span aria-hidden="true"><link.icon className="h-5 flex-none" aria-hidden="true" /></span>
                     <Typography
                       as="a"
                       href={link.href}
                       
-                      className=" font-medium transition-colors hover:text-orange-600"
+                      className="px-1 font-medium transition-colors hover:text-orange-600"
                     >
                       {link.text}
                     </Typography>
