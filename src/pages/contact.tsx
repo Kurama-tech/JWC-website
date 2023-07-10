@@ -6,8 +6,29 @@ import Layout from '@/Layouts/default';
 import AboutNew from '@/components/aboutnew';
 import Services from '@/components/services';
 import Contact from '@/components/contact';
-import ContactForm from '@/components/contactform';
-export default function ContactPage() {
+import ContactForm from '@/components/contactform2';
+import { fetchHomeData, fetchTables, fetchItemsData } from '@/requests/requests';
+import { useAppContext } from '@/store/store';
+import { trimChild, setDataChild, setDataParents } from '@/store/utils';
+import { useEffect } from 'react';
+export default function ContactPage({ homedata, items, tables }: any) {
+
+    const { state, setState } = useAppContext();
+
+    useEffect(() => {
+      setState({
+        ...state,
+        homedata: homedata,
+        items: items,
+        itemsHome: trimChild(items),
+        childItems: setDataChild(items),
+        childHome: trimChild(setDataChild(items)),
+        mainHome: trimChild(setDataParents(items)),
+        mainItems: setDataParents(items),
+        Tables: tables,
+      });
+    }, []);
+  
     
 
     return (
@@ -22,7 +43,7 @@ export default function ContactPage() {
             <main>
 
             <div id='contact'>
-                  <Contact />
+                 {/*  <Contact /> */}
                   <ContactForm />
             </div>
 
@@ -30,6 +51,17 @@ export default function ContactPage() {
         </>
     )
 }
+
+export const getServerSideProps = async (context: any) => {
+    const homedata = await fetchHomeData()
+              const tables = await fetchTables()
+  
+              const items = await fetchItemsData()
+              return {
+                props: {homedata, items, tables},
+    };
+    
+  }
 
 ContactPage.getLayout = function (page: any) {
     return <Layout>{page}</Layout>;

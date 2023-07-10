@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Switch } from '@headlessui/react'
 import axios from 'axios';
+import ContactInfo from './contactinfo';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -134,37 +135,26 @@ export default function ContactForm() {
 
 
   return (
-    <div id='enquire' className="isolate bg-white px-6 lg:px-8 mb-5">
-      <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
-        {/* <div className="col-span-1">
-          <div className="w-full h-0 relative" style={{ paddingBottom: "56.25%" }}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1520358143957!2d72.86399759999999!3d19.405835900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7af2fffffffff%3A0x9880dfbda869ee76!2sJai%20Wires%20And%20Cables!5e0!3m2!1sen!2sin!4v1688726225785!5m2!1sen!2sin"
-              className="absolute top-0 left-0 w-full h-full"
-              frameBorder="0"
-              style={{ border: "0" }}
-              allowFullScreen
-            ></iframe>
-          </div>
-
-        </div> */}
+    <div className="isolate bg-white px-6 lg:px-8 mb-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      
         <div className="col-span-1 rounded-xl ">
-          <div className="mx-auto py-4 max-w-2xl text-center">
+          <div className="mx-auto  max-w-2xl text-center">
             <h2 className="text-3xl font-extrabold tracking-tight text-orange-600 sm:text-4xl text-center">
-              Make an Enquiry
+              Contact us
             </h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
+            <p className="mt-1 text-lg leading-8 text-gray-600">
               Submit this form to get a call back or email from us!
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="mx-auto px-4 mt-1 max-w-xl sm:mt-2">
-            <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-y-3 gap-x-5 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
                   Name*
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-1">
                   <input
                     type="text"
                     name="first-name"
@@ -173,10 +163,10 @@ export default function ContactForm() {
                     onChange={handleNameChange}
                     id="first-name"
                     autoComplete="given-name"
-                    className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0  px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                   />
                   {!InvalidName && (
-                    <p className="mt-2 text-sm text-scarlet dark:text-scarlet"><span className="font-medium">Oops! </span>Please Make sure you have more than 4 characters!</p>
+                    <p className="mt-1 text-sm text-scarlet dark:text-scarlet"><span className="font-medium">Oops! </span>Please Make sure you have more than 4 characters!</p>
                   )}
                 </div>
               </div>
@@ -184,7 +174,7 @@ export default function ContactForm() {
                 <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
                   Company
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-1">
                   <input
                     type="text"
                     name="company"
@@ -192,7 +182,7 @@ export default function ContactForm() {
                     onChange={(e) => setCompany(e.target.value)}
                     id="company"
                     autoComplete="organization"
-                    className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -200,7 +190,7 @@ export default function ContactForm() {
                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
                   Email*
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-1">
                   <input
                     type="email"
                     value={email}
@@ -209,10 +199,10 @@ export default function ContactForm() {
                     name="email"
                     id="email"
                     autoComplete="email"
-                    className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                   />
                   {!isValid && (
-                    <p className="mt-2 text-sm text-scarlet dark:text-scarlet"><span className="font-medium">Oops! </span>Please enter a valid email address!</p>
+                    <p className="mt-1 text-sm text-scarlet dark:text-scarlet"><span className="font-medium">Oops! </span>Please enter a valid email address!</p>
                   )}
                 </div>
               </div>
@@ -220,7 +210,7 @@ export default function ContactForm() {
                 <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
                   Phone number*
                 </label>
-                <div className="relative mt-2.5">
+                <div className="relative mt-1">
                   <input
                     type="tel"
                     value={phone}
@@ -230,7 +220,7 @@ export default function ContactForm() {
                     required
                     placeholder='+91 000 555 5555'
                     autoComplete="tel"
-                    className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                   />
 
                   {!InvalidPhone && (
@@ -242,27 +232,27 @@ export default function ContactForm() {
                 <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
                   Message*
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-1">
                   <textarea
                     name="message"
                     value={message}
                     onChange={handleMessageChange}
                     id="message"
                     rows={4}
-                    className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                   />
                   {!InvalidMessage && (
-                    <p className="mt-2 text-sm text-scarlet dark:text-scarlet"><span className="font-medium">Oops! </span>Please Enter a Message that has atleast 20 characters</p>
+                    <p className="mt-1 text-sm text-scarlet dark:text-scarlet"><span className="font-medium">Oops! </span>Please Enter a Message that has atleast 20 characters</p>
                   )}
                 </div>
               </div>
             </div>
-            <div className="mt-10">
+            <div className="mt-5">
               <button
                 type="submit"
                 className="block w-full rounded-md px-3.5 bg-orange-600 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Let&rsquo;s talk
+                {/* Let&rsquo;s talk */} Submit
               </button>
               {loading && (
                 <div role="status">
@@ -278,6 +268,10 @@ export default function ContactForm() {
             )}
           </form>
         </div>
+        <div className='col-span-1 rounded-xl'>
+                <ContactInfo />
+        </div>
+        
       </div>
     </div>
   )

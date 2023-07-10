@@ -203,6 +203,10 @@ export default function NavBar({ data }: any) {
                     <Link href="/#enquire" className="leading-6 text-gray-900" scroll={false}>
                         Enquiry
                     </Link>
+                    <Link href="/contact" className="leading-6 text-gray-900" scroll={false}>
+                        Contact
+                    </Link>
+                    
                 </div>
                 {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <a
@@ -295,6 +299,13 @@ export default function NavBar({ data }: any) {
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Enquiry
+                                </Link>
+                                <Link
+                                    href="/contact"
+                                    scroll={false}
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                >
+                                    Contact
                                 </Link>
                             </div>
                         </div>

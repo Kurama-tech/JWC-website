@@ -79,7 +79,7 @@ export default function MainProducts({ trim }: Products) {
 export function MixedProducts({ trim }: Products) {
 
     const { state, setState } = useAppContext();
-    const products = trim? state.itemsHome : state.items
+    const products = trim? state.mainItems : state.mainItems
 
 
     return (
