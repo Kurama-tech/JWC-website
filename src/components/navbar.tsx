@@ -139,7 +139,7 @@ export default function NavBar({ data }: any) {
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                        {mobileMenuOpen ?( <XMarkIcon className="h-6 w-6" /> ) : (<Bars3Icon className="h-6 w-6" aria-hidden="true" />)}  
                     </button>
                 </div>
                 <div className="hidden text-md lg:flex lg:gap-x-12">
@@ -200,9 +200,9 @@ export default function NavBar({ data }: any) {
                         </MenuList>
                     </Menu>
 
-                    <Link href="/#enquire" className="leading-6 text-gray-900" scroll={false}>
+                    {/* <Link href="/#enquire" className="leading-6 text-gray-900" scroll={false}>
                         Enquiry
-                    </Link>
+                    </Link> */}
                     <Link href="/contact" className="leading-6 text-gray-900" scroll={false}>
                         Contact
                     </Link>
@@ -227,7 +227,7 @@ export default function NavBar({ data }: any) {
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <Link href="#" className="-m-1.5 p-1.5">
+                        <Link href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">JWC India</span>
                             <div className="flex">
                                 <img className="w-auto h-12 lg:h-20" src="/jwclogo.png" alt="" />
@@ -240,12 +240,19 @@ export default function NavBar({ data }: any) {
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <span className="sr-only">Close menu</span>
-                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                            <XMarkIcon className="h-6 w-6" />
                         </button>
                     </div>
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
+                            <Link
+                                    href="/"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                >
+                                   Home
+                                </Link>
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
@@ -277,15 +284,18 @@ export default function NavBar({ data }: any) {
                                             </Disclosure.Panel>
                                         </>
                                     )}
+                                   
                                 </Disclosure>
                                 <Link
                                     href="/products"
+                                    onClick={() => setMobileMenuOpen(false)}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     All Products
                                 </Link>
                                 <Link
                                     href="/#about"
+                                    onClick={() => setMobileMenuOpen(false)}
                                     scroll={false}
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
@@ -294,15 +304,8 @@ export default function NavBar({ data }: any) {
                             </div>
                             <div className="py-6">
                                 <Link
-                                    href="/#enquire"
-                                    scroll={false}
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Enquiry
-                                </Link>
-                                <Link
                                     href="/contact"
-                                    scroll={false}
+                                    onClick={() => setMobileMenuOpen(false)}
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Contact
