@@ -1,4 +1,6 @@
+import { sortData } from '@/store/utils';
 import axios, { AxiosError, AxiosResponse } from 'axios';
+
 
 const API_URL = "https://jwc-api.mamun.cloud"
 
@@ -15,7 +17,7 @@ const fetchHomeData = async () => {
 const fetchItemsData = async () => {
     try {
         const response: AxiosResponse = await axios.get(API_URL+ '/items');
-        return response.data
+        return sortData(response.data)
       } catch (error: any) {
         console.error('Error:', error.response?.data);
       }
@@ -42,3 +44,4 @@ const fetchTable = async (id: string) => {
 };
 
 export {fetchHomeData, fetchItemsData, fetchTable, fetchTables}
+

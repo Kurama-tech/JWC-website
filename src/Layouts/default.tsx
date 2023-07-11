@@ -20,9 +20,10 @@ export default function Layout({ children }: Props) {
             </header>
             <main>{children}</main>
             
-            
+            <footer>
                 <Footer2 />
                 {/* <Footer /> */}
+            </footer>
             
         </div>
     )

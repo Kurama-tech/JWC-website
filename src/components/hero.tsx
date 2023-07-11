@@ -19,7 +19,7 @@ export default function Hero({ data }: any) {
     <div className="bg-orange-300">
       <div className="mx-auto max-w-7xl py-1 sm:px-1 sm:py-4 lg:px-1">
         <div className="relative isolate overflow-hidden bg-orange-300 px-6 pt-16 sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-20 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
               Welcome to Jai Wires & Cables!
             </h2>

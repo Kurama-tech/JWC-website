@@ -152,7 +152,7 @@ export default function NavBar({ data }: any) {
                     <Menu open={isDropdownOpen} handler={setIsDropdownOpen}>
                         <MenuHandler>
                             <Link
-                                href='#'
+                                href='/products'
                                 className="flex items-center gap-x-1 leading-6 text-gray-900"
                                 onMouseEnter={() => setIsDropdownOpen(true)}
                                 onMouseLeave={() => setIsDropdownOpen(false)}
@@ -203,7 +203,7 @@ export default function NavBar({ data }: any) {
                     {/* <Link href="/#enquire" className="leading-6 text-gray-900" scroll={false}>
                         Enquiry
                     </Link> */}
-                    <Link href="/contact" className="leading-6 text-gray-900" scroll={false}>
+                    <Link href="/contact" className="leading-6 text-gray-900">
                         Contact
                     </Link>
                     

@@ -40,6 +40,20 @@ function removeIdField(data: any[]): any[] {
     });
 }
 
+function sortData(jsonData: any[]): any[] {
+  const typeOrder = ['Wires', 'Cables', 'Moulded Cords', 'Gromets', 'Wire Harness'];
+  
+  // Sort the data based on the type order
+  jsonData.sort((a, b) => {
+    const typeA = a.name.trim();
+    const typeB = b.name.trim();
+    return typeOrder.indexOf(typeA) - typeOrder.indexOf(typeB);
+  });
+
+  return jsonData;
+}
+
+
 function addChildToParent(objects: any[]): any[] {
   try{
   const objectMap: Record<string, any> = {};
@@ -76,5 +90,5 @@ function addChildToParent(objects: any[]): any[] {
 }
   
 
-export {setDataParents, setDataChild, trimChild, findObjectById, removeIdField, searchItemsByParent, addChildToParent}
+export {sortData, setDataParents, setDataChild, trimChild, findObjectById, removeIdField, searchItemsByParent, addChildToParent}
 //Temp.slice(0, 4)

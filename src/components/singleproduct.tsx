@@ -7,6 +7,7 @@ import { fetchTable, fetchTables } from '@/requests/requests';
 import { Card, CardBody, CardFooter, CardHeader, Spinner, Typography, useAccordion } from "@material-tailwind/react";
 import TextWrapper from './textwrapper';
 import ErrorPage from './error';
+import ProductDescription from './description';
 
 const product = {
     href: '#',
@@ -167,7 +168,8 @@ export default function Product({ data, tables }: any) {
                             <div className="mt-5">
                                 <h3 className="sr-only">Description</h3>
                                 <div className="space-y-6">
-                                    <p className="text-base text-gray-900">{prod?.description}</p>
+                                    <ProductDescription description={prod?.description} />
+                                    
                                 </div>
                             </div>
                         </div>
