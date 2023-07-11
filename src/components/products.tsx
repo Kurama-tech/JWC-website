@@ -39,7 +39,7 @@ export default function Products({ trim }: Products) {
                 <div className=" mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {products.map((product: any) => (
                         <div key={product.id} className="p-4">
-                            <Card className="w-full">
+                            <Card className="w-full h-auto max-h-[400px]">
                                 <CardHeader shadow={false} floated={false} className="h-60">
                                     <img
                                         src={product.images[0]}

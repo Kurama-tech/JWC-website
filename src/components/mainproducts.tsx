@@ -29,7 +29,7 @@ export default function MainProducts({ trim }: Products) {
                     {products.map((product: any) => (
                         <div key={product.id} className="p-4">
                             {/* Content for the first column */}
-                            <Card className="flex-row">
+                            <Card className="flex-row max-h-[200px]">
                                 <CardHeader shadow={false} floated={false} className="w-2/5 shrink-0 m-0 rounded-r-none">
                                     <img
                                         src={product.images[0]}
@@ -91,7 +91,7 @@ export function MixedProducts({ trim }: Products) {
                     {products.map((product: any) => (
                         <div key={product.id} className="p-4">
                             {/* Content for the first column */}
-                            <Card className="flex-row">
+                            <Card className="flex-row max-h-[175px]">
                                 <CardHeader shadow={false} floated={false} className="w-2/5 shrink-0 m-0 rounded-r-none">
                                     <img
                                         src={product.images[0]}
