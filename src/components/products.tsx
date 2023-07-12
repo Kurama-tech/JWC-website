@@ -22,7 +22,7 @@ export default function Products({ trim }: Products) {
     const { state, setState } = useAppContext();
     const router = useRouter();
     
-    const products = trim? state.items : state.items
+    const products = trim? state.mainItems : state.mainItems
 
     function gotoP(id: string){
         router.push("/product/"+id)

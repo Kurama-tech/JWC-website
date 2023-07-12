@@ -88,7 +88,6 @@ export default function NavBar({ data }: any) {
     const products2 = addChildToParent(data.items);
 
 
-
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
