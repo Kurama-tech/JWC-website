@@ -14,7 +14,7 @@ const Contact = () => {
                             Address
                         </h3>
                         <p className=" text-black text-left">
-                        Gala No. F 30 / 31, Meghdoot Estate, Sativali Road, Waliv Phata, Opp Luthria House, Vasai (East),Dist. Thane 401 208.
+                        Jai Wires & Cables Gala No. F 30 / 31, Meghdoot Estate, Sativali Road, Waliv Phata, Opp Luthria House, Vasai (East),Dist. Thane 401 208.
                         </p>
                     </div>
                     <div className="col-span-1 mb-5">

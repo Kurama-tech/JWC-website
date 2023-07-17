@@ -6,7 +6,7 @@ const LINKS = [
     title: "Get in Touch",
     items: [
         {
-            text: "Gala No. F 30 / 31, Meghdoot Estate, Sativali Road, Waliv Phata, Opp Luthria House, Vasai (East),Dist. Thane 401 208.",
+            text: "Jai Wires & Cables Gala No. F 30 / 31, Meghdoot Estate, Sativali Road, Waliv Phata, Opp Luthria House, Vasai (East),Dist. Thane 401 208.",
             href: "#",
             icon: MapPinIcon
 
