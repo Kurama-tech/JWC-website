@@ -22,7 +22,7 @@ USER 1001
 RUN npm run build
 
 # Expose the server on port 80
-EXPOSE 8003
+EXPOSE 8080
 
 # Start Server
 # Set the command to run the app

@@ -9,7 +9,7 @@ services:
      - internal
      - web
     ports:
-      - "8003:8003"
+      - "8080:8080"
 networks:
  web:
    external: true
