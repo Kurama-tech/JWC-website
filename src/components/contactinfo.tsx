@@ -2,7 +2,7 @@ import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline
 import { Typography } from "@material-tailwind/react";
 
 const ContactInfo: React.FC = () => {
-  const address = "Gala No. F 30 / 31, Meghdoot Estate, Sativali Road, Waliv Phata, Opp Luthria House, Vasai (East),Dist. Thane 401 208.";
+  const address = "Jai Wires & Cables Gala No. F 30 / 31, Meghdoot Estate, Sativali Road, Waliv Phata, Opp Luthria House, Vasai (East),Dist. Thane 401 208.";
   const phone = "+91 9820126970";
   const email = "info@jwcindia.com";
 
