@@ -6,19 +6,22 @@ const LINKS = [
     title: "Get in Touch",
     items: [
         {
-            text: "Jai Wires & Cables Gala No. F 30 / 31, Meghdoot Estate, Sativali Road, Waliv Phata, Opp Luthria House, Vasai (East),Dist. Thane 401 208.",
+            text: "Jai Wires & Cables\n F-30/31 Meghdhoot Ind. Est.,\n Opp.Luthriya House, Waliv Phata,\n Vasai(E), Palghar 401208",
             href: "#",
-            icon: MapPinIcon
+            icon: MapPinIcon,
+            type: "address"
 
         },
         {
             text: "info@jwcindia.com",
             href: "mailto:info@jwcindia.com",
-            icon: EnvelopeIcon
+            icon: EnvelopeIcon,
+            type: "email"
         },{
             text: "+91 9820126970", 
             href: "tel:+919820126970",
-            icon: PhoneIcon
+            icon: PhoneIcon,
+            type: "phone"
         }],
   },
   {
@@ -27,27 +30,32 @@ const LINKS = [
         {
             text: "Home",
             href: "/#",
-            icon: ArrowRightIcon
+            icon: ArrowRightIcon,
+            type: "link"
         },
         {
             text: "About",
             href: "/#about",
-            icon: ArrowRightIcon
+            icon: ArrowRightIcon,
+            type: "link"
         },
         {
             text: "Products",
             href: "/products",
-            icon: ArrowRightIcon
+            icon: ArrowRightIcon,
+            type: "link"
         },
         {
             text: "Enquiry",
             href: "/#enquire",
-            icon: ArrowRightIcon
+            icon: ArrowRightIcon,
+            type: "link"
         },
         {
           text: "Contact",
           href: "/contact",
-          icon: ArrowRightIcon
+          icon: ArrowRightIcon,
+          type: "link"
       }
     ],
   },
@@ -94,7 +102,18 @@ export default function Footer2() {
                 </Typography>
                 {items.map((link) => (
                   <li key={link.text}>
-                    <div  className="py-1.5 flex flex-1">
+                    {link.type === "address" ? (
+                      <div  className="py-1.5 flex flex-1">
+                      <span aria-hidden="true"><link.icon className="h-5 flex-none" aria-hidden="true" /></span>
+                      <Typography
+                        as="a"
+                        href={link.href}
+                        className="px-1 font-medium transition-colors hover:text-orange-600"
+                        dangerouslySetInnerHTML={{ __html: link.text.replace(/\n/g, '<br/>') }}
+                      />
+                      </div>
+                    ) : (
+                      <div  className="py-1.5 flex flex-1">
                     <span aria-hidden="true"><link.icon className="h-5 flex-none" aria-hidden="true" /></span>
                     <Typography
                       as="a"
@@ -105,6 +124,7 @@ export default function Footer2() {
                       {link.text}
                     </Typography>
                     </div>
+                    )}
                   </li>
                 ))}
               </ul>
