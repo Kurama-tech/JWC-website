@@ -4,6 +4,7 @@ import { Typography } from "@material-tailwind/react";
 const ContactInfo: React.FC = () => {
   const address = "Jai Wires & Cables\n F-30/31 Meghdhoot Ind. Est.,\n Opp.Luthriya House, Waliv Phata,\n Vasai(E), Palghar 401208";
   const phone = "+91 9820126970";
+  const phone2 = "+91 9820764384";
   const email = "info@jwcindia.com";
 
   return (
@@ -25,6 +26,9 @@ const ContactInfo: React.FC = () => {
       </div>
       <Typography variant="paragraph" className="text-black font-semibold ml-7">
         <a href={`tel:${phone}`}>{phone}</a>
+      </Typography>
+      <Typography variant="paragraph" className="text-black font-semibold ml-7">
+        <a href={`tel:${phone2}`}>{phone2}</a>
       </Typography>
 
       <div className="flex items-center space-x-2">

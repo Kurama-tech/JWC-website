@@ -22,7 +22,14 @@ const LINKS = [
             href: "tel:+919820126970",
             icon: PhoneIcon,
             type: "phone"
-        }],
+        },
+        {
+          text: "+91 9820764384", 
+          href: "tel:+919820764384",
+          icon: PhoneIcon,
+          type: "phone"
+      }
+      ],
   },
   {
     title: "Quick Links",
@@ -80,12 +87,13 @@ export default function Footer2() {
         <div className="relative pb-[42%] md:pb-5">
         
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1520358143957!2d72.86399759999999!3d19.405835900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7af2fffffffff%3A0x9880dfbda869ee76!2sJai%20Wires%20And%20Cables!5e0!3m2!1sen!2sin!4v1688726225785!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d241.80953976803514!2d72.86394477286053!3d19.40594246060004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7af2fffffffff%3A0x9880dfbda869ee76!2sJai%20Wires%20And%20Cables!5e0!3m2!1sen!2sin!4v1690375053137!5m2!1sen!2sin"
           className="absolute top-0 left-0 w-auto h-auto"
           frameBorder="0"
           style={{ border: "0" }}
           allowFullScreen
         ></iframe>
+        
       </div>
         </div>
         
