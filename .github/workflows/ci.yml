@@ -32,3 +32,9 @@ jobs:
           password: ${{ secrets.QUAY_TOKEN }}
       - name: Print image url
         run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.CLOUD_TOKEN }}
+      - name: Run Redeploy
+        run: doctl compute ssh jwc --ssh-command ./deploy-website.sh
