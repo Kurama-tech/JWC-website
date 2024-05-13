@@ -84,7 +84,7 @@ export default function Product({ data, tables }: any) {
     if (prod === null && loading) {
         return (
             <div className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
-                <Spinner className="h-12 w-12" />
+                <Spinner className="h-12 w-12" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
             </div>
         )
     }
@@ -197,7 +197,7 @@ export default function Product({ data, tables }: any) {
 
                                 <div className="mt-4">
                                     {loading && (
-                                        <Spinner className="h-12 w-12" />
+                                        <Spinner className="h-12 w-12" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
                                     )}
                                     {TablesFetched.map((table: any) => (
                                         <div key={table.id}><h4 className="text-sm font-medium text-gray-900">{table.name}</h4><br />
@@ -219,22 +219,22 @@ export default function Product({ data, tables }: any) {
                         <><h2 className="text-xl font-semibold mb-4">Sub Products</h2><div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                                 {Children.map((product: any) => (
                                     <div key={product.id} className="p-4">
-                                        <Card className="w-full max-h-[300px]">
-                                            <CardHeader shadow={false} floated={false} className="h-60">
+                                        <Card className="w-full max-h-[300px]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                                            <CardHeader shadow={false} floated={false} className="h-60"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                                 <img
                                                     src={product.images[0]}
                                                     alt={product.name}
                                                     className="w-full h-[150px] object-cover" />
                                             </CardHeader>
-                                            <CardBody>
+                                            <CardBody  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                                 <div className="flex items-center justify-between mb-2">
-                                                    <Typography color="blue-gray" className="font-bold">
+                                                    <Typography color="blue-gray" className="font-bold"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                                         {product.name}
                                                     </Typography>
                                                 </div>
                                                 {/* <TextWrapper text={product.description} /> */}
                                             </CardBody>
-                                            <CardFooter className="pt-0">
+                                            <CardFooter className="pt-0"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                                 <a
 
 

@@ -163,22 +163,21 @@ export default function NavBar({ data }: any) {
                         <MenuList
                             className="max-h-62 text-gray-900"
                             onMouseEnter={() => setIsDropdownOpen(true)}
-                            onMouseLeave={() => setIsDropdownOpen(false)}
-                        >{products2?.map((item: any, index: number) => (
+                            onMouseLeave={() => setIsDropdownOpen(false)}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >{products2?.map((item: any, index: number) => (
                             <div key={item.name}>
                                 {item?.child?.length > 0 ? (
                                     <Menu placement="right-start" offset={15} allowHover>
                                     <MenuHandler>
-                                        <MenuItem>{item.name}</MenuItem>
+                                        <MenuItem  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>{item.name}</MenuItem>
                                     </MenuHandler>
-                                    <MenuList className="max-h-72 text-gray-900">
-                                        <MenuItem>
+                                    <MenuList className="max-h-72 text-gray-900"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                                        <MenuItem  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                         <Link href={'/product/' + item.id}>
                                                 All {item.name}
                                             </Link>
                                         </MenuItem>
                                         {item?.child?.map((value: any) => (
-                                            <MenuItem key={value.id}>
+                                            <MenuItem key={value.id}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                             <Link href={'/product/' + value.id}>
                                                 {value.name}
                                             </Link>
@@ -187,7 +186,7 @@ export default function NavBar({ data }: any) {
                                     </MenuList>
                                 </Menu>
                                 ) : (
-                                    <MenuItem>
+                                    <MenuItem  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                      <Link href={'/product/' + item.id}>
                                                 {item.name}
                                     </Link>

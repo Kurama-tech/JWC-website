@@ -42,7 +42,7 @@ export default function Hero({ data }: any) {
             </div>
           </div>
           <div id="carousel" className="relative mt-16 lg:mt-8">
-            <Carousel className="rounded-xl" autoplay loop>
+            <Carousel className="rounded-xl" autoplay loop placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                 {data.map((_item: any) => (
                      <img
                      key={_item.id}

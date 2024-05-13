@@ -39,23 +39,23 @@ export default function Products({ trim }: Products) {
                 <div className=" mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {products.map((product: any) => (
                         <div key={product.id} className="p-4">
-                            <Card className="w-full h-auto max-h-[400px]">
-                                <CardHeader shadow={false} floated={false} className="h-60">
+                            <Card className="w-full h-auto max-h-[400px]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                                <CardHeader shadow={false} floated={false} className="h-60"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                     <img
                                         src={product.images[0]}
                                         alt={product.name}
                                         className="w-full h-full object-cover"
                                     />
                                 </CardHeader>
-                                <CardBody>
+                                <CardBody  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                     <div className="flex items-center justify-between mb-2">
-                                        <Typography color="blue-gray" className="font-medium">
+                                        <Typography color="blue-gray" className="font-medium"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                             {product.name}
                                         </Typography>
                                     </div>
                                     <TextWrapper text={product.description} />
                                 </CardBody>
-                                <CardFooter className="pt-0">
+                                <CardFooter className="pt-0"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                     <a
                                         
                                         

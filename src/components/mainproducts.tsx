@@ -29,17 +29,17 @@ export default function MainProducts({ trim }: Products) {
                     {products.map((product: any) => (
                         <div key={product.id} className="p-4">
                             {/* Content for the first column */}
-                            <Card className="flex-row max-h-[200px]">
-                                <CardHeader shadow={false} floated={false} className="w-2/5 shrink-0 m-0 rounded-r-none">
+                            <Card className="flex-row max-h-[200px]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                                <CardHeader shadow={false} floated={false} className="w-2/5 shrink-0 m-0 rounded-r-none"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                     <img
                                         src={product.images[0]}
                                         alt={product.name}
                                         className="w-full h-full object-cover"
                                     />
                                 </CardHeader>
-                                <CardBody>
+                                <CardBody  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
 
-                                    <Typography variant="h4" color="blue-gray" className="mb-2">
+                                    <Typography variant="h4" color="blue-gray" className="mb-2"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                         {product.name}
                                     </Typography>
 
@@ -49,7 +49,7 @@ export default function MainProducts({ trim }: Products) {
 
 
                                     <a href={"/product/"+product.id} className="inline-block">
-                                        <Button variant="text" className="flex items-center  gap-2 text-orange-600 hover:text-orange-800">
+                                        <Button variant="text" className="flex items-center  gap-2 text-orange-600 hover:text-orange-800"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                             Learn More
                                             <ArrowLongRightIcon strokeWidth={2} className="w-4 h-4" />
                                         </Button>
@@ -91,17 +91,17 @@ export function MixedProducts({ trim }: Products) {
                     {products.map((product: any) => (
                         <div key={product.id} className="p-4">
                             {/* Content for the first column */}
-                            <Card className="flex-row max-h-[175px]">
-                                <CardHeader shadow={false} floated={false} className="w-2/5 shrink-0 m-0 rounded-r-none">
+                            <Card className="flex-row max-h-[175px]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                                <CardHeader shadow={false} floated={false} className="w-2/5 shrink-0 m-0 rounded-r-none"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                     <img
                                         src={product.images[0]}
                                         alt={product.name}
                                         className="w-full h-full object-cover"
                                     />
                                 </CardHeader>
-                                <CardBody>
+                                <CardBody  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
 
-                                    <Typography variant="h4" color="blue-gray" className="mb-2">
+                                    <Typography variant="h4" color="blue-gray" className="mb-2"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                         {product.name}
                                     </Typography>
 
@@ -111,7 +111,7 @@ export function MixedProducts({ trim }: Products) {
 
 
                                     <a href={"/product/"+product.id} className="inline-block">
-                                        <Button variant="text" className="flex items-center  gap-2 text-orange-600 hover:text-orange-800">
+                                        <Button variant="text" className="flex items-center  gap-2 text-orange-600 hover:text-orange-800"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                                             Learn More
                                             <ArrowLongRightIcon strokeWidth={2} className="w-4 h-4" />
                                         </Button>

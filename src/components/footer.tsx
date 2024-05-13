@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="relative w-full bg-orange-300 rounded-xl mb-5">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className="mb-6">
+          <Typography variant="h5" className="mb-6"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           Jai Wires and Cables India
           </Typography>
           <div className="grid grid-cols-1 justify-between gap-4">
@@ -27,8 +27,7 @@ export default function Footer() {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="mb-3 font-medium opacity-40"
-                >
+                  className="mb-3 font-medium opacity-40"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                >
                   {title}
                 </Typography>
                 {items.map((link) => (
@@ -37,8 +36,7 @@ export default function Footer() {
                       as="a"
                       href="#"
                       color="gray"
-                      className="py-1.5 font-normal transition-colors hover:text-blue-gray-900"
-                    >
+                      className="py-1.5 font-normal transition-colors hover:text-blue-gray-900"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {link}
                     </Typography>
                   </li>
@@ -50,8 +48,7 @@ export default function Footer() {
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
-          >
+            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          >
             &copy; {currentYear} <Link href="/">Jai Wires and Cables India</Link>. All
             Rights Reserved.
           </Typography>

@@ -78,10 +78,9 @@ export default function Footer2() {
         <div className=" grid grid-cols-1 justify-between gap-1 md:grid-cols-2">
         <div>
         <Typography
-                  variant="small"
-                 
-                  className="mb-3 py-2 text-orange-600 font-semibold"
-                >
+              variant="small"
+
+              className="mb-3 py-2 text-orange-600 font-semibold"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                >
                   Reach Us!
                 </Typography>
         <div className="relative pb-[42%] md:pb-5">
@@ -103,9 +102,8 @@ export default function Footer2() {
               <ul key={title}>
                 <Typography
                   variant="small"
-                 
-                  className="py-2 mb-2 text-orange-600 font-semibold"
-                >
+
+                  className="py-2 mb-2 text-orange-600 font-semibold"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                >
                   {title}
                 </Typography>
                 {items.map((link) => (
@@ -114,21 +112,19 @@ export default function Footer2() {
                       <div  className="py-1.5 flex flex-1">
                       <span aria-hidden="true"><link.icon className="h-5 flex-none" aria-hidden="true" /></span>
                       <Typography
-                        as="a"
-                        href={link.href}
-                        className="px-1 font-medium transition-colors hover:text-orange-600"
-                        dangerouslySetInnerHTML={{ __html: link.text.replace(/\n/g, '<br/>') }}
-                      />
+                          as="a"
+                          href={link.href}
+                          className="px-1 font-medium transition-colors hover:text-orange-600"
+                          placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                       ><span dangerouslySetInnerHTML={{ __html: link.text.replace(/\n/g, '<br/>') }} /></Typography>
                       </div>
                     ) : (
                       <div  className="py-1.5 flex flex-1">
                     <span aria-hidden="true"><link.icon className="h-5 flex-none" aria-hidden="true" /></span>
                     <Typography
-                      as="a"
-                      href={link.href}
-                      
-                      className="px-1 font-medium transition-colors hover:text-orange-600"
-                    >
+                            as="a"
+                            href={link.href}
+
+                            className="px-1 font-medium transition-colors hover:text-orange-600"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {link.text}
                     </Typography>
                     </div>
@@ -142,8 +138,7 @@ export default function Footer2() {
         <div className="flex w-full flex-col items-center justify-center border-t border-orange-600 py-1 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
-          >
+            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}          >
             &copy; {currentYear} <a href="https://jwcindia.com/">Jai Wires and Cables</a>. All
             Rights Reserved.
           </Typography>

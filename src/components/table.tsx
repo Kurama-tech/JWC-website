@@ -10,7 +10,7 @@ export default function Table({ Data }: TableType) {
   const Headers = Object.keys(TableData[0]);
 
   return (
-    <Card className="overflow-scroll h-full w-full">
+    <Card className="overflow-scroll h-full w-full"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       <table className="w-full min-w-max table-auto text-left">
         <colgroup>
           {Headers.map((_, index) => (
@@ -28,8 +28,7 @@ export default function Table({ Data }: TableType) {
                   variant="small"
                   color="blue-gray"
                   className="font-normal leading-none opacity-70 whitespace-normal overflow-wrap-normal"
-                  style={{ maxWidth: "120px" }}
-                >
+                  style={{ maxWidth: "120px" }}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                >
                   {head}
                 </Typography>
               </th>
@@ -51,8 +50,7 @@ export default function Table({ Data }: TableType) {
                       variant="small"
                       color="blue-gray"
                       className="font-normal break-all"
-                      style={{ maxWidth: "120px" }}
-                    >
+                      style={{ maxWidth: "120px" }}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {item[value] != undefined ? item[value] : '-'}
                     </Typography>
                   </td>
