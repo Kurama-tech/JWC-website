@@ -16,7 +16,7 @@ const ContactInfo: React.FC = () => {
         </Typography>
       </div>
     
-      <Typography variant="paragraph" className="text-black font-semibold ml-7" dangerouslySetInnerHTML={{ __html: address.replace(/\n/g, '<br/>') }} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} ></Typography>
+      <Typography variant="paragraph" className="text-black font-semibold ml-7" dangerouslySetInnerHTML={{ __html: address.replace(/\n/g, '<br/>') }} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} ><></></Typography>
 
       <div className="flex items-center space-x-2">
         <PhoneIcon className="w-5 h-5 text-orange-600" />
