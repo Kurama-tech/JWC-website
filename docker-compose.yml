@@ -4,9 +4,9 @@ services:
     image: quay.io/kurama/jwc-frontend:main
     restart: always
     labels:
-      - traefik.http.routers.admin.rule=Host(`jwcindia.com`)
-      - traefik.http.routers.admin.tls=true
-      - traefik.http.routers.admin.tls.certresolver=lets-encrypt
+      - traefik.http.routers.front.rule=Host(`jwcindia.com`)
+      - traefik.http.routers.front.tls=true
+      - traefik.http.routers.front.tls.certresolver=lets-encrypt
       - traefik.port=8003
     networks:
      - internal
