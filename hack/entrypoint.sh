@@ -3,4 +3,4 @@ set -ex
 
 #nginx
 
-pm2-runtime start npm --name "jwc-frontend" -- start
+pm2 start npm --name "jwc-frontend" -- start

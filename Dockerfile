@@ -14,7 +14,7 @@ COPY . /app
 
 # Install dependencies
 RUN npm install
-RUN npm install -g pm2
+RUN npm install pm2@latest -g
 
 RUN chown -R 1001:0 /app
 USER 1001
