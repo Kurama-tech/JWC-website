@@ -2,7 +2,7 @@ import { sortData } from '@/store/utils';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 
-const API_URL = "https://api.jwcindia.com"
+const API_URL = "https://jwcapi.mamun.app"
 
 const fetchHomeData = async () => {
     try {
