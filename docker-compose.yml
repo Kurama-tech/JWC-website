@@ -1,7 +1,8 @@
 version: "3.9"
 services:
   jwcfrontend:
-    image: quay.io/kurama/jwc-frontend:main
+    #image: quay.io/kurama/jwc-frontend:main
+    build: .
     restart: always
     labels:
       - traefik.http.routers.front.rule=Host(`jwcindia.com`)
